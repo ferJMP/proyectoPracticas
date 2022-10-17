@@ -56,7 +56,7 @@ if (empty($_REQUEST['id'])) {
     <div class="col-lg-6 m-auto">
       <div class="card">
         <div class="card-header bg-primary text-white">
-          Modificar Nota
+          MODIFICAR NOTA
         </div>
         <div class="card-body">
           <form action="" method="post">

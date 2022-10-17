@@ -38,14 +38,19 @@ if (!empty($_SESSION['active'])) {
 ?>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="sistema/css/loaderIndex.css">
 <head>
 	<title>Login/CIC</title>
 	<link rel="stylesheet" type="text/css" href="sistema/login/estilo/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+  <!--<link rel="stylesheet" href="sistema/css/style.css">-->
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<div class="lds-ring loaderR" id="loaderR"><div></div><div></div><div></div><div></div></div>
+</body>
+<body>    
 	<img class="wave" src="sistema/login/img/wave2.png">
 	<div class="container">
 		<div class="img">
@@ -79,5 +84,6 @@ if (!empty($_SESSION['active'])) {
         </div>
     </div>
     <script type="text/javascript" src="sistema/login/js/main.js"></script>
+    <script type="text/javascript" src="sistema/js/loaderIndex.js"></script>
 </body>
 </html>

@@ -69,7 +69,7 @@ if (empty($_REQUEST['id'])) {
 
       <div class="card">
         <div class="card-header bg-primary text-white">
-          Modificar Archivo
+          MODIFICAR ARCHIVO
         </div>
         <div class="card-body">
         <form action="" method="post" enctype="multipart/form-data">
@@ -84,7 +84,7 @@ if (empty($_REQUEST['id'])) {
                  <div class="main-container">
                    <div class="input-container">
                      Clic aquí para subir tu Archivo
-                     <input type="file" id="archivo" name="archivos" />
+                     <input type="file" id="archivo" name="archivos"/>
                    </div>
                    <div class="preview-container">
                      <embed src="<?php echo $data_archivo['archivos']; ?>" id="preview">

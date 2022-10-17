@@ -18,6 +18,7 @@
 							<th>ID</th>
 							<th>NOMBRE</th>
 							<th>ARCHIVOS</th>
+							<th>DESCARGA</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
 							<th>ACCIONES</th>
 							<?php } ?>
@@ -30,13 +31,20 @@
 						$query = mysqli_query($conexion, "SELECT * FROM archivos");
 						$result = mysqli_num_rows($query);
 						if ($result > 0) {
-							while ($data = mysqli_fetch_assoc($query)) { ?>
+							while ($data = mysqli_fetch_assoc($query)) { 
+								$rutadescarga = $data['archivos'];
+								?>
 								<tr>
 									<td><?php echo $data['idarchivo']; ?></td>
 									<td><?php echo $data['nombre']; ?></td>
                                     <?php if ($_SESSION['rol'] == 1) { ?>
 									<td><?php echo '<embed src="'.$data['archivos'].'">' ?></td>
-									
+									<td>
+									<a href="<?php echo $rutadescarga; ?>" download="<?php echo "descarga"; ?>" class="btn btn-success btn-sm">
+								    <span class="fas fa-download"></span>
+								    </a>
+									</td>
+
 									<td>
 									    <a href="editar_archivo.php?id=<?php echo $data['idarchivo']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 

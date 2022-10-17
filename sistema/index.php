@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="css/whatsapp.css">
     <link rel="stylesheet" href="css/messenger.css">
     <link rel="stylesheet" href="css/instagram.css">
-	
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
+    <div class="lds-roller loader" id="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</body>
     <div class="container-boton">
         <a href="https://wa.me/51938579651?text=Hola,%20necesito%20información%20sobre%20la%20empresa" target="_blank">
             <img class="boton" src="img/whatsapp.png" alt="">
@@ -27,9 +30,9 @@
         </a>
     </div>
 </body>
-
 </html>
 <!-- Begin Page Content -->
+<bodoy>
 <div class="container-fluid">
 
 	<!-- Page Heading -->
@@ -254,12 +257,10 @@
 		<?php } ?>
 	</div>
 
-
 </div>
 <!-- /.container-fluid -->
-
 </div>
+<script type="text/javascript" src="js/inicioCargaLogin.js"></script>
+
 <!-- End of Main Content -->
-
-
 <?php include_once "includes/footer.php"; ?>

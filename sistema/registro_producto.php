@@ -39,7 +39,7 @@
 
    <!-- Page Heading -->
    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-     <h1 class="h3 mb-0 text-gray-800">Panel de Administración</h1>
+     <h1 class="h3 mb-0 text-gray-800">PANEL REGISTRO PRODUCTOS</h1>
      <a href="lista_productos.php" class="btn btn-primary">Regresar</a>
    </div>
 
@@ -69,7 +69,7 @@
            </select>
          </div>
          <div class="form-group">
-           <label for="producto">Producto</label>
+           <label for="producto">PRODUCTO</label>
            <input type="text" placeholder="Ingrese nombre del producto" name="producto" id="producto" class="form-control">
          </div>
          <div class="form-group">

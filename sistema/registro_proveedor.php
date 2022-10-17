@@ -45,7 +45,7 @@ mysqli_close($conexion);
     <div class="row">
         <div class="col-lg-6 m-auto">
             <div class="card-header bg-primary text-white">
-                Registro de Proveedor
+                REGISTRO DE PROVEEDOR
             </div>
             <div class="card">
                 <form action="" autocomplete="off" method="post" class="card-body p-2">

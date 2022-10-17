@@ -5,7 +5,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <h4 class="text-center">Datos del Cliente</h4>
+                                <h4 class="text-center">DATOS CLIENTE</h4>
                                 <a href="#" class="btn btn-primary btn_new_cliente"><i class="fas fa-user-plus"></i> Nuevo Cliente</a>
                             </div>
                             <div class="card">
@@ -46,7 +46,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <h4 class="text-center">Datos Venta</h4>
+                            <h4 class="text-center">DATOS VENTA</h4>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">

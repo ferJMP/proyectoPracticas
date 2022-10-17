@@ -63,7 +63,7 @@ if (empty($_REQUEST['id'])) {
 
       <div class="card">
         <div class="card-header bg-primary text-white">
-          Modificar producto
+          MODIFICAR PRODUCTO
         </div>
         <div class="card-body">
         <form action="" method="post" enctype="multipart/form-data">
