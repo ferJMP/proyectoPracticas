@@ -21,7 +21,7 @@
 							<th>DESCRIPCION</th>
 							<th>FECHA INICIO</th>
 							<th>FECHA ENTREGA</th>
-							
+							<th>HORA ENTREGA</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
 							<th>ACCIONES</th>
 							<?php } ?>
@@ -31,7 +31,7 @@
 						<?php
 						include "../conexion.php";
 
-						$query = mysqli_query($conexion, "SELECT n.idnota, n.tarea, n.descripcion, n.fecha_inicio, n.fecha_entrega, r.idrol, r.rol 
+						$query = mysqli_query($conexion, "SELECT n.idnota, n.tarea, n.descripcion, n.fecha_inicio, n.fecha_entrega, n.hora, r.idrol, r.rol 
 						FROM notas n INNER JOIN rol r ON n.id_rol = r.idrol ");
 						$result = mysqli_num_rows($query);
 						if ($result > 0) {
@@ -43,6 +43,7 @@
 									<td><?php echo $data['descripcion']; ?></td>
 									<td><?php echo $data['fecha_inicio']; ?></td>
 									<td><?php echo $data['fecha_entrega']; ?></td>
+									<td><?php echo $data['hora']; ?></td>
 										<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
 										

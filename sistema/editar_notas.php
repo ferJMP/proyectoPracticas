@@ -3,7 +3,7 @@ include_once "includes/header.php";
 include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
-  if (empty($_POST['rol']) || empty($_POST['tarea']) || empty($_POST['descripcion']) || empty($_POST['fecha_inicio']) || empty($_POST['fecha_entrega'])) {
+  if (empty($_POST['rol']) || empty($_POST['tarea']) || empty($_POST['descripcion']) || empty($_POST['fecha_inicio']) || empty($_POST['fecha_entrega']) || empty($_POST['hora'])) {
     $alert = '<div class="alert alert-primary" role="alert">
               Todo los campos son requeridos
             </div>';
@@ -14,8 +14,9 @@ if (!empty($_POST)) {
     $descripcion = $_POST['descripcion'];
     $fecha_inicio = $_POST['fecha_inicio'];
     $fecha_entrega = $_POST['fecha_entrega'];
+    $hora = $_POST['hora'];
 
-    $query_update = mysqli_query($conexion, "UPDATE notas SET id_rol = '$rol', tarea= '$tarea', descripcion= '$descripcion', fecha_inicio= '$fecha_inicio', fecha_entrega= '$fecha_entrega' WHERE idnota='$idnota'");
+    $query_update = mysqli_query($conexion, "UPDATE notas SET idrol = '$rol', tarea= '$tarea', descripcion= '$descripcion', fecha_inicio= '$fecha_inicio', fecha_entrega= '$fecha_entrega', hora='$hora' WHERE idnota='$idnota'");
     if ($query_update) {
       $alert = '<div class="alert alert-primary" role="alert">
               Modificado
@@ -37,7 +38,7 @@ if (empty($_REQUEST['id'])) {
   if (!is_numeric($idnota)) {
     header("Location: listar_notas.php");
   }
-  $query_notas = mysqli_query($conexion, "SELECT n.idnota, n.tarea, n.descripcion, n.fecha_inicio, n.fecha_entrega, r.idrol, r.rol 
+  $query_notas = mysqli_query($conexion, "SELECT n.idnota, n.tarea, n.descripcion, n.fecha_inicio, n.fecha_entrega, n.hora, r.idrol, r.rol 
   FROM notas n INNER JOIN rol r ON n.id_rol = r.idrol  WHERE n.idnota = $idnota");
   $result_notas = mysqli_num_rows($query_notas);
 
@@ -48,12 +49,11 @@ if (empty($_REQUEST['id'])) {
   }
 }
 ?>
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
   <div class="row">
     <div class="col-lg-6 m-auto">
-
       <div class="card">
         <div class="card-header bg-primary text-white">
           Modificar Nota
@@ -63,7 +63,7 @@ if (empty($_REQUEST['id'])) {
             <?php echo isset($alert) ? $alert : ''; ?>
             <div class="form-group">
               <label for="nombre">Roles</label>
-              <?php $query_notas = mysqli_query($conexion, "SELECT n.idnota, n.tarea, n.descripcion, n.fecha_inicio, n.fecha_entrega, r.idrol, r.rol 
+              <?php $query_notas = mysqli_query($conexion, "SELECT n.idnota, n.tarea, n.descripcion, n.fecha_inicio, n.fecha_entrega, n.hora, r.idrol, r.rol 
                                                             FROM notas n INNER JOIN rol r ON n.id_rol = r.idrol  ");
               $resultado_notas = mysqli_num_rows($query_notas);
               mysqli_close($conexion);
@@ -101,6 +101,12 @@ if (empty($_REQUEST['id'])) {
                 <div class="form-group">
                   <label for="fecha">Modificar Fecha de Entrega <span class="text-danger fw-bold">*</span></label>
                   <input id="fecha_entrega" class="form-control" type="date" name="fecha_entrega" value="<?php echo $data_notas['fecha_entrega']; ?>">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-floating mb-4">
+                   <label for="hora">Hora Entrega <span class="text-danger fw-bold">*</span></label>
+                   <input id="hora" class="form-control" type="time" name="hora" value="<?php echo date('H:i:s'); ?>" required>
                 </div>
             </div>
             <input type="submit" value="Actualizar Nota" class="btn btn-primary">

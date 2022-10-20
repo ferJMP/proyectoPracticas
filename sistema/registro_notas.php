@@ -2,7 +2,7 @@
 include "../conexion.php";
 if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['id_rol']) || empty($_POST['tarea']) || empty($_POST['descripcion']) || empty($_POST['fecha_inicio']) || empty($_POST['fecha_entrega']) ) {
+    if (empty($_POST['id_rol']) || empty($_POST['tarea']) || empty($_POST['descripcion']) || empty($_POST['fecha_inicio']) || empty($_POST['fecha_entrega']) || empty($_POST['hora'])) {
         $alert = '<div class="alert alert-danger" role="alert">
                                     Todo los campos son obligatorio
                                 </div>';
@@ -13,8 +13,9 @@ if (!empty($_POST)) {
         $descripcion = $_POST['descripcion'];
         $fecha_inicio = $_POST['fecha_inicio'];
         $fecha_entrega = $_POST['fecha_entrega'];
+        $hora = $_POST['hora'];
       
-            $query_insert = mysqli_query($conexion, "INSERT INTO notas(id_rol,tarea,descripcion,fecha_inicio,fecha_entrega) values ('$id_rol', '$tarea', '$descripcion', '$fecha_inicio', '$fecha_entrega' )");
+            $query_insert = mysqli_query($conexion, "INSERT INTO notas(id_rol,tarea,descripcion,fecha_inicio,fecha_entrega,hora) values ('$id_rol', '$tarea', '$descripcion', '$fecha_inicio', '$fecha_entrega', '$hora')");
             if ($query_insert) {
                 $alert = '<div class="alert alert-primary" role="alert">
                                     Nota Registrada
@@ -109,6 +110,12 @@ if (!empty($_POST)) {
             <div class="form-group">
               <label for="fecha">Fecha Entrega de Nota <span class="text-danger fw-bold">*</span></label>
               <input id="fecha_enterga" class="form-control" type="date" name="fecha_entrega" value="<?php echo date('Y-m-d'); ?>" required>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="form-floating mb-4">
+              <label for="hora">Hora Entrega <span class="text-danger fw-bold">*</span></label>
+              <input id="hora" class="" type="time" name="hora" value="<?php echo date('H:i:s'); ?>" required>
             </div>
          </div>
           
