@@ -256,11 +256,9 @@
 			</div>
 		<?php } ?>
 	</div>
-
 </div>
 <!-- /.container-fluid -->
 </div>
 <script type="text/javascript" src="js/inicioCargaLogin.js"></script>
-
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

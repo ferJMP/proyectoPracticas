@@ -32,7 +32,7 @@
 						include "../conexion.php";
 
 						$query = mysqli_query($conexion, "SELECT n.idnota, n.tarea, n.descripcion, n.fecha_inicio, n.fecha_entrega, n.hora, r.idrol, r.rol 
-						FROM notas n INNER JOIN rol r ON n.id_rol = r.idrol ");
+						FROM notas n INNER JOIN rol r ON n.idrol = r.idrol ");
 						$result = mysqli_num_rows($query);
 						if ($result > 0) {
 							while ($data = mysqli_fetch_assoc($query)) { ?>

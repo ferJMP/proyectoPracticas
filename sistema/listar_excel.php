@@ -5,8 +5,8 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">ARCHIVOS</h1>
-		<a href="registrarArchivo.php" class="btn btn-primary">Nuevo</a>
+		<h1 class="h3 mb-0 text-gray-800">ARCHIVOS EXCEL</h1>
+		<a href="registrar_excel.php" class="btn btn-primary">Nuevo</a>
 	</div>
 
 	<div class="row">
@@ -28,27 +28,27 @@
 						<?php
 						include "../conexion.php";
 
-						$query = mysqli_query($conexion, "SELECT * FROM archivos");
+						$query = mysqli_query($conexion, "SELECT * FROM archivo_ex");
 						$result = mysqli_num_rows($query);
 						if ($result > 0) {
 							while ($data = mysqli_fetch_assoc($query)) { 
-								$rutadescarga = $data['archivos'];
+								$rutadescargaExcel = $data['archivoex'];
 								?>
 								<tr>
-									<td><?php echo $data['idarchivo']; ?></td>
+									<td><?php echo $data['idarchivoex']; ?></td>
 									<td><?php echo $data['nombre']; ?></td>
                                     <?php if ($_SESSION['rol'] == 1) { ?>
-									<td><?php echo '<embed src="'.$data['archivos'].'">' ?></td>
+                                    <td><?php echo '<img src="img/excel.png">' ?></td>
 									<td>
-									<a href="<?php echo $rutadescarga; ?>" download="<?php echo "descarga"; ?>" class="btn btn-success btn-sm">
+									<a href="<?php echo $rutadescargaExcel; ?>" download="<?php echo "descargaExcel"; ?>" class="btn btn-success btn-sm">
 								    <span class="fas fa-download"></span>
 								    </a>
 									</td>
 
 									<td>
-									    <a href="editar_archivo.php?id=<?php echo $data['idarchivo']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+									    <a href="editar_excel.php?id=<?php echo $data['idarchivoex']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
-										<form action="eliminar_archivos.php?id=<?php echo $data['idarchivo']; ?>" method="post" class="confirmar d-inline">
+										<form action="eliminar_excel.php?id=<?php echo $data['idarchivoex']; ?>" method="post" class="confirmar d-inline">
 											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
 										</form>
 									</td>

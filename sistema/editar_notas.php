@@ -39,7 +39,7 @@ if (empty($_REQUEST['id'])) {
     header("Location: listar_notas.php");
   }
   $query_notas = mysqli_query($conexion, "SELECT n.idnota, n.tarea, n.descripcion, n.fecha_inicio, n.fecha_entrega, n.hora, r.idrol, r.rol 
-  FROM notas n INNER JOIN rol r ON n.id_rol = r.idrol  WHERE n.idnota = $idnota");
+  FROM notas n INNER JOIN rol r ON n.idrol = r.idrol  WHERE n.idnota = $idnota");
   $result_notas = mysqli_num_rows($query_notas);
 
   if ($result_notas > 0) {

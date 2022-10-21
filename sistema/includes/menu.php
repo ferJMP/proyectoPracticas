@@ -111,8 +111,10 @@
 			</a>
 		    <div id="collapseArchivos" class="collapse" aria-labelledby="headingUtilitiess" >
 			    <div class="bg-white py-2 collapse-inner rounded">
-				    <a class="collapse-item" href="registrarArchivo.php">Nuevo Archivo</a>
-				    <a class="collapse-item" href="listar_archivos.php">Archivos</a>
+				    <a class="collapse-item" href="registrarArchivo.php">Nuevo Archivo PDF</a>
+				    <a class="collapse-item" href="listar_archivos.php">Archivos PDF</a>
+				    <a class="collapse-item" href="registrar_excel.php">Nuevo Archivo Excel</a>
+				    <a class="collapse-item" href="listar_excel.php">Archivos Excel</a>
 			    </div>
 		    </div>
 	    </li>

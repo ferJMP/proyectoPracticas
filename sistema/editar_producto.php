@@ -21,7 +21,7 @@ if (!empty($_POST)) {
         $query_update = mysqli_query($conexion, "UPDATE producto SET imagen='$destino' WHERE codproducto = $codproducto");
     }
 
-    $query_update = mysqli_query($conexion, "UPDATE producto SET descripcion = '$producto', proveedor= $proveedor,precio= $precio WHERE codproducto = $codproducto");
+    $query_update = mysqli_query($conexion, "UPDATE producto SET descripcion = '$producto', codproveedor= $proveedor,precio= $precio WHERE codproducto = $codproducto");
     if ($query_update) {
       $alert = '<div class="alert alert-primary" role="alert">
               Modificado
@@ -44,7 +44,7 @@ if (empty($_REQUEST['id'])) {
     header("Location: lista_productos.php");
   }
   $query_producto = mysqli_query($conexion, "SELECT p.codproducto, p.descripcion, p.precio, p.imagen, pr.codproveedor, pr.proveedor 
-  FROM producto p INNER JOIN proveedor pr ON p.proveedor = pr.codproveedor WHERE p.codproducto = $id_producto");
+  FROM producto p INNER JOIN proveedor pr ON p.codproveedor = pr.codproveedor WHERE p.codproducto = $id_producto");
   $result_producto = mysqli_num_rows($query_producto);
 
   if ($result_producto > 0) {
