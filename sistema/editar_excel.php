@@ -87,7 +87,7 @@ if (empty($_REQUEST['id'])) {
                      <input type="file" id="archivo" name="archivoex"/>
                    </div>
                    <div class="preview-container">
-                     <embed src="<?php echo $data_archivo['archivoex']; ?>" id="preview">
+                     <img src="img/excel.png" id="preview">
                    </div>
                  </div>
                </body>
