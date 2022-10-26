@@ -4,19 +4,19 @@ include "../conexion.php";
 // Validar producto
 
 if (empty($_REQUEST['id'])) {
-    header("Location: lista_productos.php");
+    header("Location: lista_servicio.php");
 } else {
     $id_producto = $_REQUEST['id'];
     if (!is_numeric($id_producto)) {
-        header("Location: lista_productos.php");
+        header("Location: lista_servicio.php");
     }
-    $query_producto = mysqli_query($conexion, "SELECT codproducto, descripcion, proveedor, precio, existencia FROM producto WHERE codproducto = $id_producto");
+    $query_producto = mysqli_query($conexion, "SELECT codproducto, servicio, codproveedor, precio, existencia FROM producto WHERE codproducto = $id_producto");
     $result_producto = mysqli_num_rows($query_producto);
 
     if ($result_producto > 0) {
         $data_producto = mysqli_fetch_assoc($query_producto);
     } else {
-        header("Location: lista_productos.php");
+        header("Location: lista_servicio.php");
     }
 }
 // Agregar Productos a entrada
@@ -34,7 +34,7 @@ if (!empty($_POST)) {
             $result_pro = mysqli_num_rows($query_upd);
             if ($result_pro > 0) {
                 $alert = '<div class="alert alert-primary" role="alert">
-                        Producto actualizado con exito
+                        Servicio actualizado con exito
                     </div>';
             }
         } else {
@@ -59,7 +59,7 @@ if (!empty($_POST)) {
                     <input type="number" class="form-control" value="<?php echo $data_producto['precio']; ?>" disabled>
                 </div>
                 <div class="form-group">
-                    <label for="precio">Cantidad de productos Disponibles</label>
+                    <label for="cantidad">Cantidad de servicios Disponibles</label>
                     <input type="number" class="form-control" value="<?php echo $data_producto['existencia']; ?>" disabled>
                 </div>
                 <div class="form-group">
@@ -72,7 +72,7 @@ if (!empty($_POST)) {
                 </div>
 
                 <input type="submit" value="Actualizar" class="btn btn-primary">
-                <a href="lista_productos.php" class="btn btn-danger">Regresar</a>
+                <a href="lista_servicio.php" class="btn btn-danger">Regresar</a>
             </form>
         </div>
     </div>

@@ -2,28 +2,33 @@
 include "../conexion.php";
 if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['nombre']) || empty($_POST['telefono']) || empty($_POST['direccion'])) {
+    if (empty($_POST['razonsocial']) || empty($_POST['telefono']) || empty($_POST['direccion']) || empty($_POST['personacontacto']) || empty($_POST['cargo']) || empty($_POST['area']) || empty($_POST['correo']) || empty($_POST['web'])) {
         $alert = '<div class="alert alert-danger" role="alert">
                                     Todo los campos son obligatorio
                                 </div>';
     } else {
-        $dni = $_POST['dni'];
-        $nombre = $_POST['nombre'];
+        $ruc = $_POST['ruc'];
+        $razonsocial = $_POST['razonsocial'];
         $telefono = $_POST['telefono'];
         $direccion = $_POST['direccion'];
+        $personacontacto = $_POST['personacontacto'];
+        $cargo = $_POST['cargo'];
+        $area = $_POST['area'];
+        $correo = $_POST['correo'];
+        $web = $_POST['web'];
         $usuario_id = $_SESSION['idUser'];
 
         $result = 0;
-        if (is_numeric($dni) and $dni != 0) {
-            $query = mysqli_query($conexion, "SELECT * FROM cliente where dni = '$dni'");
+        if (is_numeric($ruc) and $ruc != 0) {
+            $query = mysqli_query($conexion, "SELECT * FROM cliente where ruc = '$ruc'");
             $result = mysqli_fetch_array($query);
         }
         if ($result > 0) {
             $alert = '<div class="alert alert-danger" role="alert">
-                                    El dni ya existe
+                                    El ruc ya existe
                                 </div>';
         } else {
-            $query_insert = mysqli_query($conexion, "INSERT INTO cliente(dni,nombre,telefono,direccion, usuario_id) values ('$dni', '$nombre', '$telefono', '$direccion', '$usuario_id')");
+            $query_insert = mysqli_query($conexion, "INSERT INTO cliente(ruc,razonsocial,telefono,direccion,personacontacto,cargo,area,correo,web,usuario_id) values ('$ruc', '$razonsocial', '$telefono', '$direccion', '$personacontacto', '$cargo', '$area', '$correo', '$web', '$usuario_id')");
             if ($query_insert) {
                 $alert = '<div class="alert alert-primary" role="alert">
                                     Cliente Registrado
@@ -54,12 +59,12 @@ if (!empty($_POST)) {
             <form action="" method="post" autocomplete="off">
                 <?php echo isset($alert) ? $alert : ''; ?>
                 <div class="form-group">
-                    <label for="dni">Dni</label>
-                    <input type="number" placeholder="Ingrese dni" name="dni" id="dni" class="form-control">
+                    <label for="ruc">Ruc</label>
+                    <input type="number" placeholder="Ingrese ruc" name="ruc" id="ruc" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" placeholder="Ingrese Nombre" name="nombre" id="nombre" class="form-control">
+                    <label for="razonsocial">Razon Social</label>
+                    <input type="text" placeholder="Ingrese Razon Social" name="razonsocial" id="razonsocial" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="telefono">Teléfono</label>
@@ -69,6 +74,26 @@ if (!empty($_POST)) {
                     <label for="direccion">Dirección</label>
                     <input type="text" placeholder="Ingrese Direccion" name="direccion" id="direccion" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label for="personacontacto">Persona Contacto</label>
+                    <input type="text" placeholder="Ingrese la Persona Contacto" name="personacontacto" id="personacontacto" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="cargo">Cargo</label>
+                    <input type="text" placeholder="Ingrese el Cargo" name="cargo" id="cargo" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="area">Area</label>
+                    <input type="text" placeholder="Ingrese el Area" name="area" id="area" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo</label>
+                    <input type="email" placeholder="Ingrese Correo" pattern=".+\.com" name="correo" id="correo" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="web">Web</label>
+                    <input type="url" placeholder="Ingrese link de la pagina Web" name="web" id="web" class="form-control">
+                </div>  
                 <input type="submit" value="Guardar Cliente" class="btn btn-primary">
             </form>
         </div>

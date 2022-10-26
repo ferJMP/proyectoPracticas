@@ -17,10 +17,15 @@
 					<thead class="thead-dark">
 						<tr>
 							<th>ID</th>
-							<th>DNI</th>
-							<th>NOMBRE</th>
+							<th>RUC</th>
+							<th>RAZON</th>
 							<th>TELEFONO</th>
 							<th>DIRECCIÓN</th>
+							<th>CONTACTO</th>
+							<th>CARGO</th>
+							<th>AREA</th>
+							<th>CORREO</th>
+							<th>WEB</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
 							<th>ACCIONES</th>
 							<?php } ?>
@@ -36,10 +41,15 @@
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
 									<td><?php echo $data['idcliente']; ?></td>
-									<td><?php echo $data['dni']; ?></td>
-									<td><?php echo $data['nombre']; ?></td>
+									<td><?php echo $data['ruc']; ?></td>
+									<td><?php echo $data['razonsocial']; ?></td>
 									<td><?php echo $data['telefono']; ?></td>
 									<td><?php echo $data['direccion']; ?></td>
+									<td><?php echo $data['personacontacto']; ?></td>
+									<td><?php echo $data['cargo']; ?></td>
+									<td><?php echo $data['area']; ?></td>
+									<td><?php echo $data['correo']; ?></td>
+									<td><?php echo $data['web']; ?></td>
 									<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
 										<a href="editar_cliente.php?id=<?php echo $data['idcliente']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>

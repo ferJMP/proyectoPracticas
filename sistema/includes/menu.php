@@ -38,12 +38,12 @@
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
 			<i class="fas fa-fw fa-wrench"></i>
-			<span>Productos</span>
+			<span>Servicios</span>
 		</a>
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="registro_producto.php">Nuevo Producto</a>
-				<a class="collapse-item" href="lista_productos.php">Productos</a>
+				<a class="collapse-item" href="registro_servicio.php">Nuevo Servicio</a>
+				<a class="collapse-item" href="lista_servicio.php">Servicios</a>
 			</div>
 		</div>
 	</li>

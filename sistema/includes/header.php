@@ -6,7 +6,7 @@ if (empty($_SESSION['active'])) {
 include "includes/functions.php";
 include "../conexion.php";
 // datos Empresa
-$dni = '';
+$ruc = '';
 $nombre_empresa = '';
 $razonSocial = '';
 $emailEmpresa = '';
@@ -18,7 +18,7 @@ $query_empresa = mysqli_query($conexion, "SELECT * FROM configuracion");
 $row_empresa = mysqli_num_rows($query_empresa);
 if ($row_empresa > 0) {
 	if ($infoEmpresa = mysqli_fetch_assoc($query_empresa)) {
-		$dni = $infoEmpresa['dni'];
+		$ruc = $infoEmpresa['ruc'];
 		$nombre_empresa = $infoEmpresa['nombre'];
 		$razonSocial = $infoEmpresa['razon_social'];
 		$telEmpresa = $infoEmpresa['telefono'];

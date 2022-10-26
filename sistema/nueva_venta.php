@@ -16,14 +16,14 @@
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <label>Dni</label>
-                                                    <input type="number" name="dni_cliente" id="dni_cliente" class="form-control">
+                                                    <label>Ruc</label>
+                                                    <input type="number" name="ruc_cliente" id="ruc_cliente" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <label>Nombre</label>
-                                                    <input type="text" name="nom_cliente" id="nom_cliente" class="form-control" disabled required>
+                                                    <label>Razon Social</label>
+                                                    <input type="text" name="razon_social_cliente" id="razon_social_cliente" class="form-control" disabled required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
@@ -34,10 +34,27 @@
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <label>Dirreción</label>
+                                                    <label>Dirección</label>
                                                     <input type="text" name="dir_cliente" id="dir_cliente" class="form-control" disabled required>
                                                 </div>
-
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>Persona-Contacto</label>
+                                                    <input type="text" name="per_contacto_cliente" id="per_contacto_cliente" class="form-control" disabled required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>Cargo</label>
+                                                    <input type="text" name="contacto_cargo_cliente" id="contacto_cargo_cliente" class="form-control" disabled required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>Área Representativa</label>
+                                                    <input type="text" name="area_repre_cliente" id="area_repre_cliente" class="form-control" disabled required>
+                                                </div>
                                             </div>
                                             <div id="div_registro_cliente" style="display: none;">
                                                 <button type="submit" class="btn btn-primary">Guardar</button>
@@ -76,7 +93,7 @@
                                         </tr>
                                         <tr>
                                             <td><input type="number" name="txt_cod_producto" id="txt_cod_producto"></td>
-                                            <td id="txt_descripcion">-</td>
+                                            <td id="txt_servicio">-</td>
                                             <td id="txt_existencia">-</td>
                                             <td><input type="text" name="txt_cant_producto" id="txt_cant_producto"value="0" min="1" disabled></td>
                                             <td id="txt_precio" class="textright">0.00</td>
@@ -85,7 +102,7 @@
                                         </tr>
                                         <tr>
                                             <th>Código</th>
-                                            <th colspan="2">Descripción</th>
+                                            <th colspan="2">Servicio</th>
                                             <th>Cantidad</th>
                                             <th class="textright">Precio</th>
                                             <th class="textright">Precio Total</th>

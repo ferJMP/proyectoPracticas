@@ -2,30 +2,35 @@
 include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
-  if (empty($_POST['nombre']) || empty($_POST['telefono']) || empty($_POST['direccion'])) {
+  if (empty($_POST['razonsocial']) || empty($_POST['telefono']) || empty($_POST['direccion']) || empty($_POST['personacontacto']) || empty($_POST['cargo']) || empty($_POST['area']) || empty($_POST['correo']) || empty($_POST['web'])) {
     $alert = '<p class"error">Todo los campos son requeridos</p>';
   } else {
     $idcliente = $_POST['id'];
-    $dni = $_POST['dni'];
-    $nombre = $_POST['nombre'];
+    $ruc = $_POST['ruc'];
+    $razonsocial = $_POST['razonsocial'];
     $telefono = $_POST['telefono'];
+    $personacontacto = $_POST['personacontacto'];
+    $cargo = $_POST['cargo'];
+    $area = $_POST['area'];
     $direccion = $_POST['direccion'];
+    $correo = $_POST['correo'];
+    $web = $_POST['web'];
 
     $result = 0;
-    if (is_numeric($dni) and $dni != 0) {
+    if (is_numeric($ruc) && $ruc != "") {
 
-      $query = mysqli_query($conexion, "SELECT * FROM cliente where (dni = '$dni' AND idcliente != $idcliente)");
+      $query = mysqli_query($conexion, "SELECT * FROM cliente where (ruc = '$ruc' AND idcliente != $idcliente)");
       $result = mysqli_fetch_array($query);
       $resul = mysqli_num_rows($query);
     }
 
     if ($resul >= 1) {
-      $alert = '<p class"error">El dni ya existe</p>';
+      $alert = '<p class"error">El ruc ya existe</p>';
     } else {
-      if ($dni == '') {
-        $dni = 0;
-      }
-      $sql_update = mysqli_query($conexion, "UPDATE cliente SET dni = $dni, nombre = '$nombre' , telefono = '$telefono', direccion = '$direccion' WHERE idcliente = $idcliente");
+      /*if ($ruc == '') {
+        $ruc = 0;
+      }*/
+      $sql_update = mysqli_query($conexion, "UPDATE cliente SET ruc = $ruc, razonsocial = '$razonsocial' , telefono = '$telefono', direccion = '$direccion', personacontacto = '$personacontacto', cargo = '$cargo', area = '$area', correo = '$correo', web = '$web' WHERE idcliente = $idcliente");
 
       if ($sql_update) {
         $alert = '<p class"exito">Cliente Actualizado correctamente</p>';
@@ -35,6 +40,7 @@ if (!empty($_POST)) {
     }
   }
 }
+//}
 // Mostrar Datos
 
 if (empty($_REQUEST['id'])) {
@@ -48,10 +54,15 @@ if ($result_sql == 0) {
 } else {
   while ($data = mysqli_fetch_array($sql)) {
     $idcliente = $data['idcliente'];
-    $dni = $data['dni'];
-    $nombre = $data['nombre'];
+    $ruc = $data['ruc'];
+    $razonsocial = $data['razonsocial'];
     $telefono = $data['telefono'];
     $direccion = $data['direccion'];
+    $personacontacto = $data['personacontacto'];
+    $cargo = $data['cargo'];
+    $area = $data['area'];
+    $correo = $data['correo'];
+    $web = $data['web'];
   }
 }
 ?>
@@ -65,12 +76,12 @@ if ($result_sql == 0) {
                 <?php echo isset($alert) ? $alert : ''; ?>
                 <input type="hidden" name="id" value="<?php echo $idcliente; ?>">
                 <div class="form-group">
-                  <label for="dni">Dni</label>
-                  <input type="number" placeholder="Ingrese dni" name="dni" id="dni" class="form-control" value="<?php echo $dni; ?>">
+                  <label for="ruc">Ruc</label>
+                  <input type="number" placeholder="Ingrese Ruc" name="ruc" id="ruc" class="form-control" value="<?php echo $ruc; ?>">
                 </div>
                 <div class="form-group">
-                  <label for="nombre">Nombre</label>
-                  <input type="text" placeholder="Ingrese Nombre" name="nombre" class="form-control" id="nombre" value="<?php echo $nombre; ?>">
+                  <label for="razonsocial">Razon Social</label>
+                  <input type="text" placeholder="Ingrese Razon Social" name="razonsocial" class="form-control" id="razonsocial" value="<?php echo $razonsocial; ?>">
                 </div>
                 <div class="form-group">
                   <label for="telefono">Teléfono</label>
@@ -79,6 +90,26 @@ if ($result_sql == 0) {
                 <div class="form-group">
                   <label for="direccion">Dirección</label>
                   <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
+                </div>
+                <div class="form-group">
+                  <label for="personacontacto">Persona Contacto</label>
+                  <input type="text" placeholder="Ingrese la Persona Contacto" name="personacontacto" class="form-control" id="personacontacto" value="<?php echo $personacontacto; ?>">
+                </div>
+                <div class="form-group">
+                  <label for="cargo">Cargo</label>
+                  <input type="text" placeholder="Ingrese el Cargo" name="cargo" class="form-control" id="cargo" value="<?php echo $cargo; ?>">
+                </div>
+                <div class="form-group">
+                  <label for="area">Area</label>
+                  <input type="text" placeholder="Ingrese el Area" name="area" class="form-control" id="area" value="<?php echo $area; ?>">
+                </div>
+                <div class="form-group">
+                  <label for="email">Correo</label>
+                  <input type="text" placeholder="Ingrese Correo" name="correo" class="form-control" id="correo" value="<?php echo $correo; ?>">
+                </div>
+                <div class="form-group">
+                  <label for="web">Web</label>
+                  <input type="url" placeholder="Ingrese Web" name="web" class="form-control" id="web" value="<?php echo $web; ?>">
                 </div>
                 <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Cliente</button>
               </form>

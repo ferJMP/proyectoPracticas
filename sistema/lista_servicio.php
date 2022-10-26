@@ -5,10 +5,9 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">PRODUCTOS</h1>
-		<a href="registro_producto.php" class="btn btn-primary">Nuevo</a>
+		<h1 class="h3 mb-0 text-gray-800">SERVICIOS</h1>
+		<a href="registro_servicio.php" class="btn btn-primary">Nuevo</a>
 	</div>
-
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="table-responsive">
@@ -16,7 +15,7 @@
 					<thead class="thead-dark">
 						<tr>
 							<th>ID</th>
-							<th>PRODUCTO</th>
+							<th>SERVICIOS</th>
 							<th>PRECIO</th>
 							<th>STOCK</th>
 							<th>IMAGEN</th>
@@ -35,15 +34,15 @@
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
 									<td><?php echo $data['codproducto']; ?></td>
-									<td><?php echo $data['descripcion']; ?></td>
+									<td><?php echo $data['servicio']; ?></td>
 									<td><?php echo $data['precio']; ?></td>
 									<td><?php echo $data['existencia']; ?></td>
 									<td class=""><?php echo '<img src="'.$data['imagen'].'">' ?></td>
 										<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
-										<a href="agregar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
+										<a href="agregar_servicio.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
 
-										<a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+										<a href="editar_servicio.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
 										<form action="eliminar_producto.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
 											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>

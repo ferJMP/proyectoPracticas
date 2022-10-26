@@ -2,13 +2,13 @@
   include "../conexion.php";
   if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['proveedor']) || empty($_POST['producto']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['cantidad'] || $_POST['cantidad'] <  0) || empty($_FILES['imagen'])) {
+    if (empty($_POST['proveedor']) || empty($_POST['servicio']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['cantidad'] || $_POST['cantidad'] <  0) || empty($_FILES['imagen'])) {
       $alert = '<div class="alert alert-danger" role="alert">
                 Todo los campos son obligatorios
               </div>';
     } else {
       $proveedor = $_POST['proveedor'];
-      $producto = $_POST['producto'];
+      $servicio = $_POST['servicio'];
       $precio = $_POST['precio'];
       $cantidad = $_POST['cantidad'];
       $usuario_id = $_SESSION['idUser'];
@@ -18,14 +18,14 @@
       $destino = "imagenSubidas/".$imagen;
       copy($ruta, $destino);
   
-      $query_insert = mysqli_query($conexion, "INSERT INTO producto(proveedor,descripcion,precio,existencia,usuario_id,imagen) values ('$proveedor', '$producto', '$precio', '$cantidad','$usuario_id','$destino')");
+      $query_insert = mysqli_query($conexion, "INSERT INTO producto(codproveedor,servicio,precio,existencia,usuario_id,imagen) values ('$proveedor', '$servicio', '$precio', '$cantidad','$usuario_id','$destino')");
       if ($query_insert) {
         $alert = '<div class="alert alert-primary" role="alert">
-                Producto Registrado
+                Servicio Registrado
               </div>';
       } else {
         $alert = '<div class="alert alert-danger" role="alert">
-                Error al registrar el producto
+                Error al registrar el servicio
               </div>';
       }
     }
@@ -39,8 +39,8 @@
 
    <!-- Page Heading -->
    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-     <h1 class="h3 mb-0 text-gray-800">PANEL REGISTRO PRODUCTOS</h1>
-     <a href="lista_productos.php" class="btn btn-primary">Regresar</a>
+     <h1 class="h3 mb-0 text-gray-800">PANEL REGISTRO SERVICIOS</h1>
+     <a href="lista_servicio.php" class="btn btn-primary">Lista Servicios</a>
    </div>
 
    <!-- Content Row -->
@@ -69,20 +69,20 @@
            </select>
          </div>
          <div class="form-group">
-           <label for="producto">PRODUCTO</label>
-           <input type="text" placeholder="Ingrese nombre del producto" name="producto" id="producto" class="form-control">
+           <label for="servicio">Servicio</label>
+           <input type="text" placeholder="Ingrese nombre del servicio" name="servicio" id="servicio" class="form-control">
          </div>
          <div class="form-group">
-           <label for="precio">Precio</label>
+           <label for="precio">Precio del Servicio</label>
            <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" id="precio">
          </div>
          <div class="form-group">
-           <label for="cantidad">Cantidad</label>
+           <label for="cantidad">Cantidad del Servicio</label>
            <input type="number" placeholder="Ingrese cantidad" class="form-control" name="cantidad" id="cantidad">
          </div>
          <!--imagen-->
          <body>
-           <label for="fecha">Subir Imagen <span class="text-danger fw-bold">*</span></label>
+           <label for="fecha">Subir Imagen del Servicio <span class="text-danger fw-bold">*</span></label>
            <div class="main-container">
              <div class="input-container">
                Clic aquí para subir tu imagen
@@ -95,7 +95,7 @@
          </body>
          <!-- finish imagen-->
 
-         <input type="submit" value="Guardar Producto" class="btn btn-primary">
+         <input type="submit" value="Guardar Servicio" class="btn btn-primary">
        </form>
      </div>
    </div>

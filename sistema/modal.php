@@ -1,14 +1,13 @@
-
 <?php
 include("../conexion.php");
 session_start();
 //print_r($_POST);
 if (!empty($_POST)) {
-  // Extraer datos del producto
+  // Extraer datos del servicio
   if ($_POST['action'] == 'infoProducto') {
       $data = "";
     $producto_id = $_POST['producto'];
-    $query = mysqli_query($conexion, "SELECT codproducto, descripcion, precio, existencia FROM producto WHERE codproducto = $producto_id");
+    $query = mysqli_query($conexion, "SELECT codproducto, servicio, precio, existencia FROM producto WHERE codproducto = $producto_id");
 
     $result = mysqli_num_rows($query);
     if ($result > 0) {
@@ -36,9 +35,9 @@ if (!empty($_POST)) {
 // Buscar Cliente
 if ($_POST['action'] == 'searchCliente') {
   if (!empty($_POST['cliente'])) {
-    $dni = $_POST['cliente'];
+    $ruc = $_POST['cliente'];
 
-    $query = mysqli_query($conexion, "SELECT * FROM cliente WHERE dni LIKE '$dni'");
+    $query = mysqli_query($conexion, "SELECT * FROM cliente WHERE ruc LIKE '$ruc'");
     mysqli_close($conexion);
     $result = mysqli_num_rows($query);
     $data = '';
@@ -53,13 +52,13 @@ if ($_POST['action'] == 'searchCliente') {
 }
 // registrar cliente = ventas
 if ($_POST['action'] == 'addCliente') {
-  $dni = $_POST['dni_cliente'];
-  $nomnre = $_POST['nom_cliente'];
+  $ruc = $_POST['ruc_cliente'];
+  $razonsocial = $_POST['razon_social'];
   $telefono = $_POST['tel_cliente'];
-  $direccion = $_POST['dir_cliente'];
+  $direccion = $_POST['dir_servicio'];
   $usuario_id = $_SESSION['idUser'];
 
-  $query_insert = mysqli_query($conexion, "INSERT INTO cliente(dni, nombre, telefono, direccion, usuario_id) VALUES ('$dni','$nomnre','$telefono','$direccion','$usuario_id')");
+  $query_insert = mysqli_query($conexion, "INSERT INTO cliente(ruc, razonsocial, telefono, direccion, usuario_id) VALUES ('$ruc','$razonsocial','$telefono','$direccion','$usuario_id')");
   if ($query_insert) {
     $codCliente = mysqli_insert_id($conexion);
     $msg = $codCliente;
@@ -101,7 +100,7 @@ if ($_POST['action'] == 'addProductoDetalle') {
 
         $detalleTabla .='<tr>
             <td>'.$data['codproducto'].'</td>
-            <td colspan="2">'.$data['descripcion'].'</td>
+            <td colspan="2">'.$data['servicio'].'</td>
             <td class="textcenter">'.$data['cantidad'].'</td>
             <td class="textright">'.$data['precio_venta'].'</td>
             <td class="textright">'.$precioTotal.'</td>
@@ -132,7 +131,6 @@ if ($_POST['action'] == 'addProductoDetalle') {
     echo 'error';
   }
   mysqli_close($conexion);
-
   }
   exit;
 }
@@ -145,7 +143,7 @@ if ($_POST['action'] == 'searchForDetalle') {
     $token = md5($_SESSION['idUser']);
 
     $query = mysqli_query($conexion, "SELECT tmp.correlativo, tmp.token_user,
-      tmp.cantidad, tmp.precio_venta, p.codproducto, p.descripcion
+      tmp.cantidad, tmp.precio_venta, p.codproducto, p.servicio
       FROM detalle_temp tmp INNER JOIN producto p ON tmp.codproducto = p.codproducto
       where token_user = '$token'");
     $result = mysqli_num_rows($query);
@@ -172,7 +170,7 @@ if ($_POST['action'] == 'searchForDetalle') {
 
         $detalleTabla .= '<tr>
             <td>'.$data['codproducto'].'</td>
-            <td colspan="2">'.$data['descripcion'].'</td>
+            <td colspan="2">'.$data['servicio'].'</td>
             <td class="textcenter">'.$data['cantidad'].'</td>
             <td class="textright">'.$data['precio_venta'].'</td>
             <td class="textright">'.$precioTotal.'</td>
@@ -202,10 +200,8 @@ if ($_POST['action'] == 'searchForDetalle') {
     $arrayData['totales'] = $detalleTotales;
 
     echo json_encode($arrayData,JSON_UNESCAPED_UNICODE);
-    exit;
   }else {
-    $data = 0;
-    exit;
+    echo 'error';
   }
   mysqli_close($conexion);
 
@@ -246,7 +242,7 @@ if ($_POST['action'] == 'delProductoDetalle') {
 
         $detalleTabla .= '<tr>
             <td>'.$data['codproducto'].'</td>
-            <td colspan="2">'.$data['descripcion'].'</td>
+            <td colspan="2">'.$data['servicio'].'</td>
             <td class="textcenter">'.$data['cantidad'].'</td>
             <td class="textright">'.$data['precio_venta'].'</td>
             <td class="textright">'.$precioTotal.'</td>

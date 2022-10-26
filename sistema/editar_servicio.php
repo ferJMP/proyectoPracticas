@@ -3,14 +3,14 @@ include_once "includes/header.php";
 include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
-  if (empty($_POST['producto']) || empty($_POST['precio']) || empty($_FILES['imagen'])) {
+  if (empty($_POST['servicio']) || empty($_POST['precio']) || empty($_FILES['imagen'])) {
     $alert = '<div class="alert alert-primary" role="alert">
               Todo los campos son requeridos
             </div>';
   } else {
     $codproducto = $_GET['id'];
     $proveedor = $_POST['proveedor'];
-    $producto = $_POST['producto'];
+    $servicio = $_POST['servicio'];
     $precio = $_POST['precio'];
     $imagen=null;
     if($_FILES['imagen']['name']!=null){
@@ -21,7 +21,7 @@ if (!empty($_POST)) {
         $query_update = mysqli_query($conexion, "UPDATE producto SET imagen='$destino' WHERE codproducto = $codproducto");
     }
 
-    $query_update = mysqli_query($conexion, "UPDATE producto SET descripcion = '$producto', codproveedor= $proveedor,precio= $precio WHERE codproducto = $codproducto");
+    $query_update = mysqli_query($conexion, "UPDATE producto SET servicio = '$servicio', codproveedor= $proveedor,precio= $precio WHERE codproducto = $codproducto");
     if ($query_update) {
       $alert = '<div class="alert alert-primary" role="alert">
               Modificado
@@ -43,7 +43,7 @@ if (empty($_REQUEST['id'])) {
   if (!is_numeric($id_producto)) {
     header("Location: lista_productos.php");
   }
-  $query_producto = mysqli_query($conexion, "SELECT p.codproducto, p.descripcion, p.precio, p.imagen, pr.codproveedor, pr.proveedor 
+  $query_producto = mysqli_query($conexion, "SELECT p.codproducto, p.servicio, p.precio, p.imagen, pr.codproveedor, pr.proveedor 
   FROM producto p INNER JOIN proveedor pr ON p.codproveedor = pr.codproveedor WHERE p.codproducto = $id_producto");
   $result_producto = mysqli_num_rows($query_producto);
 
@@ -63,7 +63,7 @@ if (empty($_REQUEST['id'])) {
 
       <div class="card">
         <div class="card-header bg-primary text-white">
-          MODIFICAR PRODUCTO
+          MODIFICAR SERVICIO
         </div>
         <div class="card-body">
         <form action="" method="post" enctype="multipart/form-data">
@@ -88,8 +88,8 @@ if (empty($_REQUEST['id'])) {
               </select>
             </div>
             <div class="form-group">
-              <label for="producto">Producto</label>
-              <input type="text" class="form-control" placeholder="Ingrese nombre del producto" name="producto" id="producto" value="<?php echo $data_producto['descripcion']; ?>">
+              <label for="servicio">Servicio</label>
+              <input type="text" class="form-control" placeholder="Ingrese nombre del servicio" name="servicio" id="servicio" value="<?php echo $data_producto['servicio']; ?>">
             </div>
             <div class="form-group">
               <label for="precio">Precio</label>

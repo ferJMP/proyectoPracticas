@@ -101,16 +101,20 @@ $(document).ready(function() {
     // activa campos para registrar Cliente
     $('.btn_new_cliente').click(function(e) {
         e.preventDefault();
-        $('#nom_cliente').removeAttr('disabled');
+        $('#razon_social_cliente').removeAttr('disabled');
         $('#tel_cliente').removeAttr('disabled');
         $('#dir_cliente').removeAttr('disabled');
+        $('#per_contacto_cliente').removeAttr('disabled');
+        $('#contacto_cargo_cliente').removeAttr('disabled');
+        $('#area_repre_cliente').removeAttr('disabled');
+
 
         $('#div_registro_cliente').slideDown();
 
     });
 
-    // buscar Cliente
-    $('#dni_cliente').keyup(function(e) {
+    // buscar Cliente ---- aca cambie de nueva_venta
+    $('#ruc_cliente').keyup(function(e) {
         e.preventDefault();
         var cl = $(this).val();
         var action = 'searchCliente';
@@ -122,24 +126,38 @@ $(document).ready(function() {
             success: function(response) {
                 if (response == 0) {
                     $('#idcliente').val('');
-                    $('#nom_cliente').val('');
+                    $('#razon_social_cliente').val('');
                     $('#tel_cliente').val('');
                     $('#dir_cliente').val('');
+                    $('#per_contacto_cliente').val('');
+                    $('#contacto_cargo_cliente').val('');
+                    $('#area_repre_cliente').val('');
+
                     // mostar boton agregar
                     $('.btn_new_cliente').slideDown();
                 } else {
                     var data = $.parseJSON(response);
                     $('#idcliente').val(data.idcliente);
-                    $('#nom_cliente').val(data.nombre);
+                    $('#razon_social_cliente').val(data.razonsocial);
                     $('#tel_cliente').val(data.telefono);
                     $('#dir_cliente').val(data.direccion);
+                    $('#per_contacto_cliente').val(data.personacontacto);
+                    $('#contacto_cargo_cliente').val(data.cargo);
+                    $('#area_repre_cliente').val(data.area);
+
+
                     // ocultar boton Agregar
                     $('.btn_new_cliente').slideUp();
 
                     // Bloque campos
-                    $('#nom_cliente').attr('disabled', 'disabled');
+                    $('#razon_social_cliente').attr('disabled', 'disabled');
                     $('#tel_cliente').attr('disabled', 'disabled');
                     $('#dir_cliente').attr('disabled', 'disabled');
+                    $('#per_contacto_cliente').attr('disabled', 'disabled');
+                    $('#contacto_cargo_cliente').attr('disabled', 'disabled');
+                    $('#area_repre_cliente').attr('disabled', 'disabled');
+
+
                     // ocultar boto Guardar
                     $('#div_registro_cliente').slideUp();
                 }
@@ -164,9 +182,14 @@ $(document).ready(function() {
                     // Agregar id a input hidden
                     $('#idcliente').val(response);
                     //bloque campos
-                    $('#nom_cliente').attr('disabled', 'disabled');
+                    $('#razon_social_cliente').attr('disabled', 'disabled');
                     $('#tel_cliente').attr('disabled', 'disabled');
                     $('#dir_cliente').attr('disabled', 'disabled');
+                    $('#per_contacto_cliente').attr('disabled', 'disabled');
+                    $('#contacto_cargo_cliente').attr('disabled', 'disabled');
+                    $('#area_repre_cliente').attr('disabled', 'disabled');
+
+
                     // ocultar boton Agregar
                     $('.btn_new_cliente').slideUp();
                     //ocultar boton Guardar
@@ -182,7 +205,7 @@ $(document).ready(function() {
         e.preventDefault();
         var productos = $(this).val();
         if (productos == "") {
-            $('#txt_descripcion').html('-');
+            $('#txt_servicio').html('-');
             $('#txt_existencia').html('-');
             $('#txt_cant_producto').val('0');
             $('#txt_precio').html('0.00');
@@ -202,7 +225,7 @@ $(document).ready(function() {
                 data: { action: action, producto: productos },
                 success: function(response) {
                     if (response == 0) {
-                        $('#txt_descripcion').html('-');
+                        $('#txt_servicio').html('-');
                         $('#txt_existencia').html('-');
                         $('#txt_cant_producto').val('0');
                         $('#txt_precio').html('0.00');
@@ -217,7 +240,7 @@ $(document).ready(function() {
                     } else {
 
                         var info = JSON.parse(response);
-                        $('#txt_descripcion').html(info.descripcion);
+                        $('#txt_servicio').html(info.descripcion);
                         $('#txt_existencia').html(info.existencia);
                         $('#txt_cant_producto').val('1');
                         $('#txt_precio').html(info.precio);
@@ -231,7 +254,7 @@ $(document).ready(function() {
                 },
                 error: function(error) {}
             });
-            $('#txt_descripcion').html('-');
+            $('#txt_servicio').html('-');
             $('#txt_existencia').html('-');
             $('#txt_cant_producto').val('0');
             $('#txt_precio').html('0.00');
@@ -278,7 +301,7 @@ $(document).ready(function() {
                         $('#detalle_venta').html(info.detalle);
                         $('#detalle_totales').html(info.totales);
                         $('#txt_cod_producto').val('');
-                        $('#txt_descripcion').html('-');
+                        $('#txt_servicio').html('-');
                         $('#txt_existencia').html('-');
                         $('#txt_cant_producto').val('0');
                         $('#txt_precio').html('0.00');
@@ -456,12 +479,13 @@ function del_product_detalle(correlativo) {
         async: true,
         data: { action: action, id_detalle: id_detalle },
         success: function(response) {
+            console.log(response);
             if (response != 0) {
                 var info = JSON.parse(response);
                 $('#detalle_venta').html(info.detalle);
                 $('#detalle_totales').html(info.totales);
                 $('#txt_cod_producto').val('');
-                $('#txt_descripcion').html('-');
+                $('#txt_servicio').html('-');
                 $('#txt_existencia').html('-');
                 $('#txt_cant_producto').val('0');
                 $('#txt_precio').html('0.00');
@@ -475,8 +499,6 @@ function del_product_detalle(correlativo) {
             } else {
                 $('#detalle_venta').html('');
                 $('#detalle_totales').html('');
-
-
             }
             viewProcesar();
         },
