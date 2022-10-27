@@ -53,7 +53,7 @@ if ($_POST['action'] == 'searchCliente') {
 // registrar cliente = ventas
 if ($_POST['action'] == 'addCliente') {
   $ruc = $_POST['ruc_cliente'];
-  $razonsocial = $_POST['razon_social'];
+  $razonsocial = $_POST['razon_social_cliente'];
   $telefono = $_POST['tel_cliente'];
   $direccion = $_POST['dir_servicio'];
   $usuario_id = $_SESSION['idUser'];

@@ -15,7 +15,7 @@ if (!empty($_POST)) {
         $fecha_entrega = $_POST['fecha_entrega'];
         $hora = $_POST['hora'];
 
-            $query_insert = mysqli_query($conexion, "INSERT INTO notas(id_rol,tarea,descripcion,fecha_inicio,fecha_entrega,hora) values ('$id_rol', '$tarea', '$descripcion', '$fecha_inicio', '$fecha_entrega', '$hora')");
+            $query_insert = mysqli_query($conexion, "INSERT INTO notas(idrol,tarea,descripcion,fecha_inicio,fecha_entrega,hora) values ('$id_rol', '$tarea', '$descripcion', '$fecha_inicio', '$fecha_entrega', '$hora')");
             if ($query_insert) {
                 $alert = '<div class="alert alert-primary" role="alert">
                                     Nota Registrada
