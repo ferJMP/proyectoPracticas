@@ -29,6 +29,7 @@
 					</thead>
 					<tbody>
 						<?php
+						$incrementador = 1;
 						include "../conexion.php";
 
 						$query = mysqli_query($conexion, "SELECT n.idnota, n.tarea, n.descripcion, n.fecha_inicio, n.fecha_entrega, n.hora, r.idrol, r.rol 
@@ -37,7 +38,7 @@
 						if ($result > 0) {
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
-									<td><?php echo $data['idnota']; ?></td>
+									<td><?php echo $incrementador; ?></td>
 									<td><?php echo $data['rol']; ?></td>
 									<td><?php echo $data['tarea']; ?></td>
 									<td><?php echo $data['descripcion']; ?></td>
@@ -46,7 +47,6 @@
 									<td><?php echo $data['hora']; ?></td>
 										<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
-										
 										<a href="editar_notas.php?id=<?php echo $data['idnota']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
 										<form action="eliminar_notas.php?id=<?php echo $data['idnota']; ?>" method="post" class="confirmar d-inline">
@@ -55,7 +55,8 @@
 									</td>
 										<?php } ?>
 								</tr>
-						<?php }
+						<?php $incrementador++;
+						}
 						} ?>
 					</tbody>
 

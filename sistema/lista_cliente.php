@@ -33,6 +33,7 @@
 					</thead>
 					<tbody>
 						<?php
+						$incrementador = 1;
 						include "../conexion.php";
 
 						$query = mysqli_query($conexion, "SELECT * FROM cliente");
@@ -40,7 +41,7 @@
 						if ($result > 0) {
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
-									<td><?php echo $data['idcliente']; ?></td>
+									<td><?php echo $incrementador; ?></td>
 									<td><?php echo $data['ruc']; ?></td>
 									<td><?php echo $data['razonsocial']; ?></td>
 									<td><?php echo $data['telefono']; ?></td>
@@ -59,7 +60,8 @@
 									</td>
 									<?php } ?>
 								</tr>
-						<?php }
+						<?php $incrementador++;
+						}
 						} ?>
 					</tbody>
 

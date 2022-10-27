@@ -26,6 +26,7 @@
 					</thead>
 					<tbody>
 						<?php
+						$incrementador = 1;
 						include "../conexion.php";
 
 						$query = mysqli_query($conexion, "SELECT * FROM archivo_ex");
@@ -35,7 +36,7 @@
 								$rutadescargaExcel = $data['archivoex'];
 								?>
 								<tr>
-									<td><?php echo $data['idarchivoex']; ?></td>
+									<td><?php echo $incrementador; ?></td>
 									<td><?php echo $data['nombre']; ?></td>
                                     <?php if ($_SESSION['rol'] == 1) { ?>
                                     <td><?php echo '<img src="img/excel.png">' ?></td>
@@ -54,7 +55,8 @@
 									</td>
 										<?php } ?>
 								</tr>
-						<?php }
+						<?php $incrementador++;
+						}
                         } ?>
 					</tbody>
 
