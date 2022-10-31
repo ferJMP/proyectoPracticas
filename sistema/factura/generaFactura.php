@@ -1,4 +1,5 @@
 <?php
+
 	session_start();
 	if(empty($_SESSION['active']))
 	{
@@ -22,7 +23,7 @@
 		$pdf = new FPDF('P', 'mm', 'A3');
 		$pdf->AddPage();
 		$pdf->SetMargins(10, 0, 0);
-		$pdf->SetTitle("Reporte SV");
+		$pdf->SetTitle("BOLETA");
 		$pdf->SetFont('Arial', 'B', 16);
 		$pdf->Cell(280, 5, utf8_decode($resultado['nombre']), 0, 1, 'C');
 		$pdf->Ln(20);

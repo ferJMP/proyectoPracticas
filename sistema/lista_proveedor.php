@@ -27,7 +27,6 @@
 					</thead>
 					<tbody>
 						<?php
-						$incrementador = 1;
 						include "../conexion.php";
 
 						$query = mysqli_query($conexion, "SELECT * FROM proveedor");
@@ -35,7 +34,7 @@
 						if ($result > 0) {
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
-									<td><?php echo $incrementador; ?></td>
+									<td><?php echo $data['codproveedor']; ?></td>
 									<td><?php echo $data['contacto']; ?></td>
 									<td><?php echo $data['proveedor']; ?></td>
 									<td><?php echo $data['telefono']; ?></td>
@@ -49,7 +48,7 @@
 									</td>
 									<?php } ?>
 								</tr>
-						<?php $incrementador++;
+						<?php 
 						}
 						} ?>
 					</tbody>

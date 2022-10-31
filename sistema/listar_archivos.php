@@ -26,7 +26,6 @@
 					</thead>
 					<tbody>
 						<?php 
-						$incrementador = 1;
 						include "../conexion.php";
 
 						$query = mysqli_query($conexion, "SELECT * FROM archivos");
@@ -36,7 +35,7 @@
 								$rutadescarga = $data['archivos'];
 								?>
 								<tr>
-									<td><?php echo $incrementador; ?></td>
+									<td><?php echo $data['idarchivo']; ?></td>
 									<td><?php echo $data['nombre']; ?></td>
                                     <?php if ($_SESSION['rol'] == 1) { ?>
 									<td><?php echo '<embed src="'.$data['archivos'].'">' ?></td>
@@ -55,7 +54,7 @@
 									</td>
 										<?php } ?>
 								</tr>
-						<?php $incrementador++;
+						<?php 
 						}
                         } ?>
 					</tbody>

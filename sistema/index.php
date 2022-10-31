@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/messenger.css">
     <link rel="stylesheet" href="css/instagram.css">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
     <div class="lds-roller loader" id="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
@@ -78,12 +77,12 @@
 		</a>
 
 		<!-- Earnings (Monthly) Card Example -->
-		<a class="col-xl-3 col-md-6 mb-4" href="lista_productos.php">
+		<a class="col-xl-3 col-md-6 mb-4" href="lista_servicio.php">
 			<div class="card border-left-info shadow h-100 py-2">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Productos</div>
+							<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Servicios</div>
 							<div class="row no-gutters align-items-center">
 								<div class="col-auto">
 									<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $data['productos']; ?></div>

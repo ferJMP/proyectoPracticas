@@ -26,7 +26,6 @@
 					</thead>
 					<tbody>
 						<?php
-						$incrementador = 1;
 						include "../conexion.php";
 
 						$query = mysqli_query($conexion, "SELECT * FROM producto");
@@ -34,7 +33,7 @@
 						if ($result > 0) {
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
-									<td><?php echo $incrementador; ?></td>
+									<td><?php echo $data['codproducto']; ?></td>
 									<td><?php echo $data['servicio']; ?></td>
 									<td><?php echo $data['precio']; ?></td>
 									<td><?php echo $data['existencia']; ?></td>
@@ -51,7 +50,7 @@
 									</td>
 										<?php } ?>
 								</tr>
-						<?php $incrementador++;
+						<?php 
 						}
 						} ?>
 					</tbody>

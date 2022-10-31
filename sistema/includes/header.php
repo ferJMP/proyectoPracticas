@@ -43,13 +43,11 @@ if ($result_data > 0) {
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-
-	<title>Punto de Venta</title>
-
+	<title>CIC-PANEL INICIO</title>
 	<!-- Custom styles for this template-->
 	<link href="css/sb-admin-2.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
-
+    <link rel="icon" type="image/ico" href="img/icono.ico">
 </head>
 
 <body id="page-top">

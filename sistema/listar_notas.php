@@ -29,7 +29,6 @@
 					</thead>
 					<tbody>
 						<?php
-						$incrementador = 1;
 						include "../conexion.php";
 
 						$query = mysqli_query($conexion, "SELECT n.idnota, n.tarea, n.descripcion, n.fecha_inicio, n.fecha_entrega, n.hora, r.idrol, r.rol 
@@ -38,7 +37,7 @@
 						if ($result > 0) {
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
-									<td><?php echo $incrementador; ?></td>
+									<td><?php echo $data['idnota']; ?></td>
 									<td><?php echo $data['rol']; ?></td>
 									<td><?php echo $data['tarea']; ?></td>
 									<td><?php echo $data['descripcion']; ?></td>
@@ -55,7 +54,7 @@
 									</td>
 										<?php } ?>
 								</tr>
-						<?php $incrementador++;
+						<?php 
 						}
 						} ?>
 					</tbody>

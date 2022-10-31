@@ -29,7 +29,6 @@
 					</thead>
 					<tbody>
 						<?php
-						$incrementador = 1;
 						include "../conexion.php";
 
 						$query = mysqli_query($conexion, "SELECT u.idusuario, u.nombre, u.correo, u.usuario, r.rol FROM usuario u INNER JOIN rol r ON u.rol = r.idrol");
@@ -37,7 +36,7 @@
 						if ($result > 0) {
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
-									<td><?php echo $incrementador; ?></td>
+									<td><?php echo $data['idusuario']; ?></td>
 									<td><?php echo $data['nombre']; ?></td>
 									<td><?php echo $data['correo']; ?></td>
 									<td><?php echo $data['usuario']; ?></td>
@@ -51,7 +50,7 @@
 									</td>
 									<?php } ?>
 								</tr>
-						<?php $incrementador++; 
+						<?php 
 						}
 						} ?>
 					</tbody>
