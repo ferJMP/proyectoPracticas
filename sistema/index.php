@@ -35,9 +35,10 @@
 <div class="container-fluid">
 
 	<!-- Page Heading -->
-	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Panel de Administración</h1>
-	</div>
+	<!--<div class="d-sm-flex align-items-center justify-content-between mb-4">-->
+	    <i style="font-size: 40px" class="fas fa-boxes mb-3"></i> 
+	    <!--<h1 class="h3 mb-0 text-gray-800"><i>ADMINISTRACIÓN</i></h1>-->
+	<!--</div>-->
 
 	<!-- Content Row -->
 	<div class="row">
@@ -120,9 +121,10 @@
 		</a>
 	</div>
 	<!-- Page Heading -->
-	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Configuración</h1>
-	</div>
+	<!--<div class="d-sm-flex align-items-center justify-content-between mb-4">-->
+	    <i style="font-size: 40px" class="fas fa-eye mb-3"></i> 
+		<!--<h1 class="h3 mb-0 text-gray-800"><i> CONFIGURACIÓN </i> </h1>-->
+	<!--</div>-->
 	<div class="row">
 		<div class="col-lg-6">
 			<div class="card">

@@ -34,8 +34,8 @@ if (!empty($_POST)) {
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">PANEL ARCHIVOS</h1>
-  <a href="listar_archivos.php" class="btn btn-primary">Regresar</a>
+  <h1 class="h3 mb-0 text-gray-800"><i>PANEL ARCHIVOS PDF</i></h1>
+  <a href="listar_archivos.php" class="btn btn-primary">Lista PDF</a>
 </div>
 
 <!-- Content Row -->
@@ -56,7 +56,7 @@ if (!empty($_POST)) {
                      <input type="file" id="archivo" name="archivos" accept=".pdf" />
                    </div>
                    <div class="preview-container">
-                     <embed src="img/archivo.png" id="preview">
+                     <embed src="img/pdf.png" id="preview">
                    </div>
            </div>
          </body>

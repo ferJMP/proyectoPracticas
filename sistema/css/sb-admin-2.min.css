@@ -535,6 +535,15 @@ mark {
     height: auto
 }
 
+.img-correo-derecha {
+    padding: .25rem;
+    background-color: black;
+    border: 0.5px solid;
+    border-radius: .35rem;
+    max-width: 85%;
+    right: 50;
+}
+
 .figure {
     display: inline-block
 }
@@ -10888,7 +10897,7 @@ a:focus {
         display: inline
     }
     .sidebar .sidebar-heading {
-        text-align: left
+        text-align: center;
     }
     .sidebar.toggled {
         overflow: visible;
@@ -11012,7 +11021,7 @@ a:focus {
 }
 
 .sidebar-dark .sidebar-heading {
-    color: rgba(255, 255, 255, .4)
+    color: aquamarine;
 }
 
 .sidebar-dark .nav-item .nav-link {

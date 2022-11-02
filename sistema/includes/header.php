@@ -77,7 +77,7 @@ if ($result_data > 0) {
 						<i class="fa fa-bars"></i>
 					</button>
 					<div class="input-group">
-						<h6>Sistema de Venta</h6>
+						<h6>SISTEMA-CIC</h6>
 						<p class="ml-auto"><strong>Peru, </strong><?php echo fechaPeru(); ?></p>
 					</div>
 
@@ -89,7 +89,8 @@ if ($result_data > 0) {
 						<!-- Nav Item - User Information -->
 						<li class="nav-item dropdown no-arrow">
 							<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="mr-2 d-none d-lg-inline small text-white"><?php echo $_SESSION['nombre']; ?></span>
+							    <img src="img/avatar.png" class="img-correo-derecha">
+								
 							</a>
 							<!-- Dropdown - User Information -->
 							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

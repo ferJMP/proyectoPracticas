@@ -5,9 +5,9 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">USUARIOS</h1>
+		<h1 class="h3 mb-0 text-gray-800"><i>USUARIOS</i></h1>
 		<?php if ($_SESSION['rol'] == 1) { ?>
-		<a href="registro_usuario.php" class="btn btn-primary">Nuevo</a>
+		<a href="registro_usuario.php" class="btn btn-primary">Nuevo Usuario</a>
 		<?php } ?>
 	</div>
 
@@ -21,7 +21,7 @@
 							<th>NOMBRE</th>
 							<th>CORREO</th>
 							<th>USUARIO</th>
-							<th>DIRECCIÓN</th>
+							<th>ROL</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
 							<th>ACCIONES</th>
 							<?php }?>

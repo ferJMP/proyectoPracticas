@@ -50,12 +50,12 @@ html {
     margin: 0 auto;
     width: 350px;
     min-height: 150px;
-    background-color: rgb(185, 165, 165);
+    background-color: rgb(69, 63, 63);
     padding: 10px;
     border-radius: 30px;
 }
 
 .preview-container>embed {
-    width: 300px;
+    width: 170px;
     height: 150px;
 }

@@ -5,7 +5,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <h4 class="text-center">DATOS CLIENTE</h4>
+                                <h4 class="text-center"><i>DATOS CLIENTE</i></h4>
                                 <a href="#" class="btn btn-primary btn_new_cliente"><i class="fas fa-user-plus"></i> Nuevo Cliente</a>
                             </div>
                             <div class="card">
@@ -56,6 +56,18 @@
                                                     <input type="text" name="area_repre_cliente" id="area_repre_cliente" class="form-control" disabled required>
                                                 </div>
                                             </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>Correo</label>
+                                                    <input type="text" name="correo_cliente" id="correo_cliente" class="form-control" disabled required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>Web</label>
+                                                    <input type="text" name="web_cliente" id="web_cliente" class="form-control" disabled required>
+                                                </div>
+                                            </div>
                                             <div id="div_registro_cliente" style="display: none;">
                                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                             </div>
@@ -63,7 +75,8 @@
                                     </form>
                                 </div>
                             </div>
-                            <h4 class="text-center">DATOS VENTA</h4>
+                            <hr>
+                            <h4 class="text-center"><i>DATOS VENTA</i></h4>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -72,7 +85,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <label>Acciones</label>
+                                    <label><i class="fas fa-award"></i> Acciones</label>
                                     <div id="acciones_venta" class="form-group">
                                         <a href="#" class="btn btn-danger" id="btn_anular_venta">Anular</a>
                                         <a href="#" class="btn btn-primary" id="btn_facturar_venta"><i class="fas fa-save"></i> Generar Venta</a>

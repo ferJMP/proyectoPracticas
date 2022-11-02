@@ -107,7 +107,8 @@ $(document).ready(function() {
         $('#per_contacto_cliente').removeAttr('disabled');
         $('#contacto_cargo_cliente').removeAttr('disabled');
         $('#area_repre_cliente').removeAttr('disabled');
-
+        $('#correo_cliente').removeAttr('disabled');
+        $('#web_cliente').removeAttr('disabled');
 
         $('#div_registro_cliente').slideDown();
 
@@ -132,6 +133,8 @@ $(document).ready(function() {
                     $('#per_contacto_cliente').val('');
                     $('#contacto_cargo_cliente').val('');
                     $('#area_repre_cliente').val('');
+                    $('#correo_cliente').val('');
+                    $('#web_cliente').val('');
 
                     // mostar boton agregar
                     $('.btn_new_cliente').slideDown();
@@ -144,7 +147,8 @@ $(document).ready(function() {
                     $('#per_contacto_cliente').val(data.personacontacto);
                     $('#contacto_cargo_cliente').val(data.cargo);
                     $('#area_repre_cliente').val(data.area);
-
+                    $('#correo_cliente').val(data.correo);
+                    $('#web_cliente').val(data.web);
 
                     // ocultar boton Agregar
                     $('.btn_new_cliente').slideUp();
@@ -156,7 +160,8 @@ $(document).ready(function() {
                     $('#per_contacto_cliente').attr('disabled', 'disabled');
                     $('#contacto_cargo_cliente').attr('disabled', 'disabled');
                     $('#area_repre_cliente').attr('disabled', 'disabled');
-
+                    $('#correo_cliente').attr('disabled', 'disabled');
+                    $('#web_cliente').attr('disabled', 'disabled');
 
                     // ocultar boto Guardar
                     $('#div_registro_cliente').slideUp();
@@ -188,7 +193,8 @@ $(document).ready(function() {
                     $('#per_contacto_cliente').attr('disabled', 'disabled');
                     $('#contacto_cargo_cliente').attr('disabled', 'disabled');
                     $('#area_repre_cliente').attr('disabled', 'disabled');
-
+                    $('#correo_cliente').attr('disabled', 'disabled');
+                    $('#web_cliente').attr('disabled', 'disabled');
 
                     // ocultar boton Agregar
                     $('.btn_new_cliente').slideUp();

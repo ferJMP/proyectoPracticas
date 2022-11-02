@@ -62,8 +62,8 @@ if (!empty($_POST)) {
 
    <!-- Page Heading -->
    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-     <h1 class="h3 mb-0 text-gray-800">PANEL REGISTRO NOTAS</h1>
-     <a href="listar_notas.php" class="btn btn-primary">Regresar</a>
+     <h1 class="h3 mb-0 text-gray-800"><i>PANEL REGISTRO NOTAS</i></h1>
+     <a href="listar_notas.php" class="btn btn-primary">Lista Notas</a>
    </div>
 
    <!-- Content Row -->

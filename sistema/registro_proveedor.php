@@ -67,7 +67,7 @@ mysqli_close($conexion);
                         <input type="text" placeholder="Ingrese Direccion" name="direccion" id="direcion" class="form-control">
                     </div>
                     <input type="submit" value="Guardar Proveedor" class="btn btn-primary">
-                    <a href="lista_proveedor.php" class="btn btn-danger">Regresar</a>
+                    <a href="lista_proveedor.php" class="btn btn-danger">Lista Proveedores</a>
                 </form>
             </div>
         </div>

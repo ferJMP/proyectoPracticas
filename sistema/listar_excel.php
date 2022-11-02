@@ -5,8 +5,8 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">ARCHIVOS EXCEL</h1>
-		<a href="registrar_excel.php" class="btn btn-primary">Nuevo</a>
+		<h1 class="h3 mb-0 text-gray-800"><i>ARCHIVOS EXCEL</i></h1>
+		<a href="registrar_excel.php" class="btn btn-primary">Nuevo Excel</a>
 	</div>
 
 	<div class="row">

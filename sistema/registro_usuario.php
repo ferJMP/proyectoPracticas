@@ -41,8 +41,8 @@ if (!empty($_POST)) {
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">PANEL DE ADMINISTRACIÓN</h1>
-        <a href="lista_usuarios.php" class="btn btn-primary">Regresar</a>
+        <h1 class="h3 mb-0 text-gray-800"><i>PANEL USUARIOS</i></h1>
+        <a href="lista_usuarios.php" class="btn btn-primary">Lista Usuarios</a>
     </div>
 
     <!-- Content Row -->

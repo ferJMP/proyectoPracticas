@@ -34,7 +34,7 @@ if (!empty($_POST)) {
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">PANEL ARCHIVOS EXCEL</h1>
+  <h1 class="h3 mb-0 text-gray-800"><i>PANEL ARCHIVOS EXCEL</i></h1>
   <a href="listar_excel.php" class="btn btn-primary">Lista Excel</a>
 </div>
 

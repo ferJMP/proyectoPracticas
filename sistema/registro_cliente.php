@@ -49,8 +49,8 @@ if (!empty($_POST)) {
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">PANEL REGISTRO CLIENTE</h1>
-        <a href="lista_cliente.php" class="btn btn-primary">Regresar</a>
+        <h1 class="h3 mb-0 text-gray-800"><i>PANEL REGISTRO CLIENTE</i></h1>
+        <a href="lista_cliente.php" class="btn btn-primary">Lista Clientes</a>
     </div>
 
     <!-- Content Row -->

@@ -6,7 +6,7 @@
 		<div class="sidebar-brand-icon rotate-n-15">
 			<img src="img/cic.jpg" class="img-thumbnail">
 		</div>
-		<div class="sidebar-brand-text mx-3">SISTEMA</div>
+		<!--<div class="sidebar-brand-text mx-3">SISTEMA</div>-->
 	</a>
 
 	<!-- Divider -->
@@ -65,7 +65,7 @@
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
 			<i class="fas fa-hospital"></i>
-			<span>Proveedor</span>
+			<span>Proveedores</span>
 		</a>
 		<div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
