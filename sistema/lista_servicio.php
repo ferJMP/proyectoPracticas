@@ -40,11 +40,11 @@
 									<td class=""><?php echo '<img src="'.$data['imagen'].'">' ?></td>
 										<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
-										<a href="agregar_servicio.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
+										<a href="agregar_servicio.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-biohazard'></i></a>
 
 										<a href="editar_servicio.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
-										<form action="eliminar_producto.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
+										<form action="eliminar_servicio.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
 											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
 										</form>
 									</td>

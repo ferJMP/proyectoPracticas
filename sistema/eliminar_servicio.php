@@ -13,7 +13,7 @@ if (!empty($_GET['id'])) {
             $query_delete = mysqli_query($conexion, "DELETE FROM producto WHERE codproducto = $codproducto");
             if(unlink($ruta_imagen)) {
             mysqli_close($conexion);
-            header("location: lista_productos.php");
+            header("location: lista_servicio.php");
             // file was successfully deleted
             }else{
             echo 'error';
