@@ -63,6 +63,10 @@ if (empty($_REQUEST['id'])) {
 <link rel="stylesheet" href="css/subidaFoto.css">
 <!-- Begin Page Content -->
 <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+             <h1 class="h3 mb-0 text-gray-800"><i>PANEL EDITAR PDF</i></h1>
+             <a href="listar_archivos.php" class="btn btn-primary">Lista PDF</a>
+        </div>
 
   <div class="row">
     <div class="col-lg-6 m-auto">
@@ -71,8 +75,7 @@ if (empty($_REQUEST['id'])) {
         <div class="card-header bg-primary text-white">
           MODIFICAR ARCHIVO EXCEL
         </div>
-        <div class="card-body">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data" class="card-body p-2">
             <?php echo isset($alert) ? $alert : ''; ?>
             <div class="form-group">
               <label for="precio">Nombre</label>
@@ -81,6 +84,7 @@ if (empty($_REQUEST['id'])) {
             <!--imagen-->
                <body>
                  <label for="fecha">Subir Archivo <span class="text-danger fw-bold">*</span></label>
+                 </div> 
                  <div class="main-container">
                    <div class="input-container">
                      Clic aquí para subir tu Archivo
@@ -94,13 +98,11 @@ if (empty($_REQUEST['id'])) {
             <!-- finish imagen-->
             <input type="submit" value="Actualizar Excel" class="btn btn-primary">
         </form>
-        </div>
-      </div>
     </div>
   </div>
 </div>
 <!-- /.container-fluid -->
-</div>
+</br>
 <script type="text/javascript" src="js/subidaFoto.js"></script>
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

@@ -16,7 +16,7 @@ if (!empty($_POST)) {
     $fecha_entrega = $_POST['fecha_entrega'];
     $hora = $_POST['hora'];
 
-    $query_update = mysqli_query($conexion, "UPDATE notas SET id_rol = '$rol', tarea= '$tarea', descripcion= '$descripcion', fecha_inicio= '$fecha_inicio', fecha_entrega= '$fecha_entrega', hora='$hora' WHERE idnota='$idnota'");
+    $query_update = mysqli_query($conexion, "UPDATE notas SET idrol = '$rol', tarea= '$tarea', descripcion= '$descripcion', fecha_inicio= '$fecha_inicio', fecha_entrega= '$fecha_entrega', hora='$hora' WHERE idnota='$idnota'");
     if ($query_update) {
       $alert = '<div class="alert alert-primary" role="alert">
               Modificado
@@ -52,14 +52,17 @@ if (empty($_REQUEST['id'])) {
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800"><i>PANEL EDITAR NOTAS</i></h1>
+        <a href="listar_notas.php" class="btn btn-primary">Lista Notas</a>
+      </div>
   <div class="row">
     <div class="col-lg-6 m-auto">
-      <div class="card">
         <div class="card-header bg-primary text-white">
           MODIFICAR NOTA
         </div>
-        <div class="card-body">
-          <form action="" method="post">
+        <div class="card">
+          <form action="" method="post" class="card-body p-2">
             <?php echo isset($alert) ? $alert : ''; ?>
             <div class="form-group">
               <label for="nombre">Roles</label>
@@ -110,15 +113,11 @@ if (empty($_REQUEST['id'])) {
             </div>
             <input type="submit" value="Actualizar Nota" class="btn btn-primary">
           </form>
-        </div>
       </div>
     </div>
   </div>
-
-
 </div>
 <!-- /.container-fluid -->
-
-</div>
+</br> 
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

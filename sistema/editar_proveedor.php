@@ -4,7 +4,8 @@ include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
   if (empty($_POST['proveedor']) || empty($_POST['contacto']) || empty($_POST['telefono']) || empty($_POST['direccion'])) {
-    $alert = '<p class"msg_error">Todo los campos son requeridos</p>';
+    $alert = '<div class="alert alert-primary" role="alert">
+                      Todos los Campos son requeridos</div>';
   } else {
     $idproveedor = $_GET['id'];
     $proveedor = $_POST['proveedor'];
@@ -15,9 +16,11 @@ if (!empty($_POST)) {
     $sql_update = mysqli_query($conexion, "UPDATE proveedor SET proveedor = '$proveedor', contacto = '$contacto' , telefono = $telefono, direccion = '$direccion' WHERE codproveedor = $idproveedor");
 
     if ($sql_update) {
-      $alert = '<p class"msg_save">Proveedor Actualizado correctamente</p>';
+      $alert = '<div class="alert alert-primary" role="alert">
+                        Proveedor Actualizado Exitosamente</div>';
     } else {
-      $alert = '<p class"msg_error">Error al Actualizar el Proveedor</p>';
+      $alert = '<div class="alert alert-primary" role="alert">
+                       Error al Actualizar el Proveedor</div>';
     }
   }
 }
@@ -45,11 +48,18 @@ if ($result_sql == 0) {
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800"><i>PANEL EDITAR PROVEEDOR</i></h1>
+              <a href="lista_proveedor.php" class="btn btn-primary">Lista Proveedores</a>
+        </div>
   <div class="row">
     <div class="col-lg-6 m-auto">
+            <div class="card-header bg-primary text-white">
+                EDITAR PROVEEDOR
+            </div>
+      <div class="card">      
       <?php echo isset($alert) ? $alert : ''; ?>
-      <form class="" action="" method="post">
+      <form class="" action="" method="post"  class="card-body p-2">
         <input type="hidden" name="id" value="<?php echo $idproveedor; ?>">
         <div class="form-group">
           <label for="proveedor">Proveedor</label>
@@ -70,13 +80,11 @@ if ($result_sql == 0) {
 
         <input type="submit" value="Editar Proveedor" class="btn btn-primary">
       </form>
+      </div>
     </div>
   </div>
-
-
 </div>
 <!-- /.container-fluid -->
-
-</div>
+</br> 
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

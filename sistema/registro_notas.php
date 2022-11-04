@@ -59,17 +59,19 @@ if (!empty($_POST)) {
 
  <!-- Begin Page Content -->
  <div class="container-fluid">
-
    <!-- Page Heading -->
    <div class="d-sm-flex align-items-center justify-content-between mb-4">
      <h1 class="h3 mb-0 text-gray-800"><i>PANEL REGISTRO NOTAS</i></h1>
      <a href="listar_notas.php" class="btn btn-primary">Lista Notas</a>
    </div>
-
    <!-- Content Row -->
    <div class="row">
      <div class="col-lg-6 m-auto">
-       <form action="" method="post" autocomplete="off">
+            <div class="card-header bg-primary text-white">
+                REGISTRAR NOTAS
+            </div>
+      <div class="card">
+       <form action="" method="post" autocomplete="off" class="card-body p-2">
          <?php echo isset($alert) ? $alert : ''; ?>
          <div class="form-group">
            <label>Asignador</label>
@@ -120,13 +122,11 @@ if (!empty($_POST)) {
          </div>
          <input type="submit" value="Guardar Nota" class="btn btn-primary">
        </form>
+      </div> 
      </div>
    </div>
-
-
  </div>
  <!-- /.container-fluid -->
-
- </div>
+            </br> 
  <!-- End of Main Content -->
  <?php include_once "includes/footer.php"; ?>

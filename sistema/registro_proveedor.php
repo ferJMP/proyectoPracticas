@@ -41,6 +41,11 @@ mysqli_close($conexion);
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
+     <!-- Page Heading -->
+     <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800"><i>PANEL REGISTRO PROVEEDORES</i></h1>
+        <a href="lista_proveedor.php" class="btn btn-primary">Lista Proveedores</a>
+    </div>
     <!-- Content Row -->
     <div class="row">
         <div class="col-lg-6 m-auto">
@@ -51,32 +56,29 @@ mysqli_close($conexion);
                 <form action="" autocomplete="off" method="post" class="card-body p-2">
                     <?php echo isset($alert) ? $alert : ''; ?>
                     <div class="form-group">
-                        <label for="nombre">NOMBRE</label>
+                        <label for="nombre">Nombre</label>
                         <input type="text" placeholder="Ingrese nombre" name="proveedor" id="nombre" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="contacto">RUC</label>
+                        <label for="contacto">Ruc</label>
                         <input type="text" placeholder="Ingrese nombre del contacto" name="contacto" id="contacto" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="telefono">TELÉFONO</label>
+                        <label for="telefono">Teléfono</label>
                         <input type="number" placeholder="Ingrese teléfono" name="telefono" id="telefono" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="direccion">DIRECIÓN</label>
+                        <label for="direccion">Dirección</label>
                         <input type="text" placeholder="Ingrese Direccion" name="direccion" id="direcion" class="form-control">
                     </div>
+                    </div>
+                     </br>
                     <input type="submit" value="Guardar Proveedor" class="btn btn-primary">
-                    <a href="lista_proveedor.php" class="btn btn-danger">Lista Proveedores</a>
                 </form>
-            </div>
         </div>
     </div>
-
-
 </div>
 <!-- /.container-fluid -->
-
-</div>
+</br> 
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

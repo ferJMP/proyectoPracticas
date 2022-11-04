@@ -41,14 +41,18 @@ if (!empty($_POST)) {
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><i>PANEL USUARIOS</i></h1>
+        <h1 class="h3 mb-0 text-gray-800"><i>PANEL REGISTROS USUARIOS</i></h1>
         <a href="lista_usuarios.php" class="btn btn-primary">Lista Usuarios</a>
     </div>
 
     <!-- Content Row -->
     <div class="row">
         <div class="col-lg-6 m-auto">
-            <form action="" method="post" autocomplete="off">
+            <div class="card-header bg-primary text-white">
+                REGISTRO DE USUARIOS
+            </div>
+            <div class="card">
+            <form action="" method="post" autocomplete="off" class="card-body p-2">
                 <?php echo isset($alert) ? $alert : ''; ?>
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
@@ -83,16 +87,16 @@ if (!empty($_POST)) {
                         }
 
                         ?>
-                    </select></div>
+                    </select>
+                     </div>
+                     </div>
+                    </br>
                 <input type="submit" value="Guardar Usuario" class="btn btn-primary">
             </form>
         </div>
     </div>
-
-
 </div>
 <!-- /.container-fluid -->
-
-</div>
+</br> 
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

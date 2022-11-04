@@ -41,7 +41,11 @@ if (!empty($_POST)) {
 <!-- Content Row -->
 <div class="row">
   <div class="col-lg-6 m-auto">
-    <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
+           <div class="card-header bg-primary text-white">
+                REGISTRAR PDF
+            </div>
+  <div class="card">
+    <form action="" method="post" autocomplete="off" enctype="multipart/form-data"  class="card-body p-2">
       <?php echo isset($alert) ? $alert : ''; ?>
       <div class="form-group">
         <label for="">Nombre</label>
@@ -50,6 +54,7 @@ if (!empty($_POST)) {
       <!--archivo-->
          <body>
            <label for="fecha">Subir Archivo <span class="text-danger fw-bold">*</span></label>
+           </div> 
            <div class="main-container">
            <div class="input-container">
                      Clic aquí para subir tu Archivo
@@ -61,13 +66,13 @@ if (!empty($_POST)) {
            </div>
          </body>
           <!--finish archivo-->
-          <input type="submit" value="Guardar Archivo" class="btn btn-primary">
+          <input type="submit" value="Guardar PDF" class="btn btn-primary">
     </form>
   </div>
 </div>
 </div>
 <!-- /.container-fluid -->
-</div>
+</br> 
 <!-- End of Main Content -->
 <script type="text/javascript" src="js/subidaFoto.js"></script>
 <?php include_once "includes/footer.php"; ?>

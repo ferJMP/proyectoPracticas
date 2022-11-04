@@ -46,7 +46,11 @@
    <!-- Content Row -->
    <div class="row">
      <div class="col-lg-6 m-auto">
-       <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
+          <div class="card-header bg-primary text-white">
+          REGISTRO SERVICIO
+          </div>
+       <div class="card">
+       <form action="" method="post" autocomplete="off" enctype="multipart/form-data"  class="card-body p-2">
          <?php echo isset($alert) ? $alert : ''; ?>
          <div class="form-group">
            <label>Proveedor</label>
@@ -80,9 +84,11 @@
            <label for="cantidad">Cantidad del Servicio</label>
            <input type="number" placeholder="Ingrese cantidad" class="form-control" name="cantidad" id="cantidad">
          </div>
+
          <!--imagen-->
          <body>
            <label for="fecha">Subir Imagen del Servicio <span class="text-danger fw-bold">*</span></label>
+           </div>
            <div class="main-container">
              <div class="input-container">
                Clic aquí para subir tu imagen
@@ -94,14 +100,13 @@
            </div>
          </body>
          <!-- finish imagen-->
-
          <input type="submit" value="Guardar Servicio" class="btn btn-primary">
        </form>
      </div>
    </div>
  </div>
  <!-- /.container-fluid -->
- </div>
+ </br> 
  <script type="text/javascript" src="js/subidaFoto.js"></script>
  <!-- End of Main Content -->
  <?php include_once "includes/footer.php"; ?>

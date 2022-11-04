@@ -57,16 +57,18 @@ if (empty($_REQUEST['id'])) {
 <link rel="stylesheet" href="css/subidaFoto.css">
 <!-- Begin Page Content -->
 <div class="container-fluid">
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">PANEL EDITAR SERVICIO</h1>
+        <a href="lista_servicio.php" class="btn btn-primary">Lista Servicios</a>
+      </div>
 
   <div class="row">
     <div class="col-lg-6 m-auto">
-
-      <div class="card">
         <div class="card-header bg-primary text-white">
           MODIFICAR SERVICIO
         </div>
-        <div class="card-body">
-        <form action="" method="post" enctype="multipart/form-data">
+        <div class="card">
+        <form action="" method="post" enctype="multipart/form-data" class="card-body p-2">
             <?php echo isset($alert) ? $alert : ''; ?>
             <div class="form-group">
               <label for="nombre">Proveedor</label>
@@ -98,6 +100,7 @@ if (empty($_REQUEST['id'])) {
             <!--imagen-->
                <body>
                  <label for="fecha">Subir Imagen <span class="text-danger fw-bold">*</span></label>
+                 </div>
                  <div class="main-container">
                    <div class="input-container">
                      Clic aquí para subir tu imagen
@@ -113,11 +116,9 @@ if (empty($_REQUEST['id'])) {
         </form>
         </div>
       </div>
-    </div>
-  </div>
 </div>
 <!-- /.container-fluid -->
-</div>
+</br> 
 <script type="text/javascript" src="js/subidaFoto.js"></script>
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

@@ -56,7 +56,11 @@ if (!empty($_POST)) {
     <!-- Content Row -->
     <div class="row">
         <div class="col-lg-6 m-auto">
-            <form action="" method="post" autocomplete="off">
+                <div class="card-header bg-primary text-white">
+                REGISTRO DE CLIENTES
+                </div>
+        <div class="card">
+            <form action="" method="post" autocomplete="off" class="card-body p-2">
                 <?php echo isset($alert) ? $alert : ''; ?>
                 <div class="form-group">
                     <label for="ruc">Ruc</label>
@@ -93,16 +97,15 @@ if (!empty($_POST)) {
                 <div class="form-group">
                     <label for="web">Web</label>
                     <input type="url" placeholder="Ingrese link de la pagina Web" name="web" id="web" class="form-control">
+                </div> 
                 </div>  
+                 </br> 
                 <input type="submit" value="Guardar Cliente" class="btn btn-primary">
             </form>
         </div>
     </div>
-
-
 </div>
 <!-- /.container-fluid -->
-
-</div>
+</br> 
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

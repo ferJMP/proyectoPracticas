@@ -3,7 +3,8 @@ include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
   if (empty($_POST['razonsocial']) || empty($_POST['telefono']) || empty($_POST['direccion']) || empty($_POST['personacontacto']) || empty($_POST['cargo']) || empty($_POST['area']) || empty($_POST['correo']) || empty($_POST['web'])) {
-    $alert = '<p class"error">Todo los campos son requeridos</p>';
+    $alert = '<div class="alert alert-primary" role="alert">
+                      Todos los Campos son Requeridos</div>';
   } else {
     $idcliente = $_POST['id'];
     $ruc = $_POST['ruc'];
@@ -25,7 +26,8 @@ if (!empty($_POST)) {
     }
 
     if ($resul >= 1) {
-      $alert = '<p class"error">El ruc ya existe</p>';
+      $alert = '<div class="alert alert-primary" role="alert">
+                        El Ruc ya existe</div>';
     } else {
       /*if ($ruc == '') {
         $ruc = 0;
@@ -33,9 +35,11 @@ if (!empty($_POST)) {
       $sql_update = mysqli_query($conexion, "UPDATE cliente SET ruc = $ruc, razonsocial = '$razonsocial' , telefono = '$telefono', direccion = '$direccion', personacontacto = '$personacontacto', cargo = '$cargo', area = '$area', correo = '$correo', web = '$web' WHERE idcliente = $idcliente");
 
       if ($sql_update) {
-        $alert = '<p class"exito">Cliente Actualizado correctamente</p>';
+        $alert = '<div class="alert alert-primary" role="alert">
+                            Cliente Actualizado Correctamente</div>';
       } else {
-        $alert = '<p class"error">Error al Actualizar el Cliente</p>';
+        $alert = '<div class="alert alert-danger" role="alert">
+                            Error al Actualizar</div>';
       }
     }
   }
@@ -68,11 +72,17 @@ if ($result_sql == 0) {
 ?>
         <!-- Begin Page Content -->
         <div class="container-fluid">
-        <h1 class="h3 mb-0 text-gray-800">PANEL EDITAR CLIENTE</h1>
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800"><i>PANEL EDITAR CLIENTE</i></h1>
+        <a href="lista_cliente.php" class="btn btn-primary">Lista Clientes</a>
+        </div>
           <div class="row">
             <div class="col-lg-6 m-auto">
-
-              <form class="" action="" method="post">
+            <div class="card-header bg-primary text-white">
+                EDITAR CLIENTES
+            </div>
+            <div class="card">
+              <form action="" method="post" class="card-body p-2">
                 <?php echo isset($alert) ? $alert : ''; ?>
                 <input type="hidden" name="id" value="<?php echo $idcliente; ?>">
                 <div class="form-group">
@@ -111,15 +121,14 @@ if ($result_sql == 0) {
                   <label for="web">Web</label>
                   <input type="url" placeholder="Ingrese Web" name="web" class="form-control" id="web" value="<?php echo $web; ?>">
                 </div>
+                </div>
+                </br>
                 <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Cliente</button>
               </form>
             </div>
           </div>
-
-
         </div>
         <!-- /.container-fluid -->
-
-      </div>
+        </br> 
       <!-- End of Main Content -->
       <?php include_once "includes/footer.php"; ?>

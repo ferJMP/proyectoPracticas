@@ -4,7 +4,8 @@ include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
   if (empty($_POST['nombre']) || empty($_POST['correo']) || empty($_POST['usuario']) || empty($_POST['rol'])) {
-    $alert = '<p class"error">Todo los campos son requeridos</p>';
+    $alert = '<div class="alert alert-primary" role="alert">
+                     Todo los campos son obligatorios </div>';
   } else {
     $idusuario = $_GET['id'];
     $nombre = $_POST['nombre'];
@@ -13,7 +14,8 @@ if (!empty($_POST)) {
     $rol = $_POST['rol'];
 
     $sql_update = mysqli_query($conexion, "UPDATE usuario SET nombre = '$nombre', correo = '$correo' , usuario = '$usuario', rol = $rol WHERE idusuario = $idusuario");
-    $alert = '<p>Usuario Actualizado</p>';
+    $alert =  '<div class="alert alert-primary" role="alert">
+                           Usuario Actualizado</div>';
   }
 }
 
@@ -41,10 +43,17 @@ if ($result_sql == 0) {
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800"><i>PANEL EDITAR USUARIOS</i></h1>
+        <a href="lista_usuarios.php" class="btn btn-primary">Lista Usuarios</a>
+      </div>
   <div class="row">
     <div class="col-lg-6 m-auto">
-      <form class="" action="" method="post">
+            <div class="card-header bg-primary text-white">
+                MODIFICAR USUARIO
+            </div>
+    <div class="card">
+      <form action="" method="post" class="card-body p-2">
         <?php echo isset($alert) ? $alert : ''; ?>
         <input type="hidden" name="id" value="<?php echo $idusuario; ?>">
         <div class="form-group">
@@ -74,23 +83,22 @@ if ($result_sql == 0) {
                               if ($rol == 2) {
                                 echo "selected";
                               }
-                              ?>>Supervisor</option>
+                              ?>>Asesor</option>
             <option value="3" <?php
                               if ($rol == 3) {
                                 echo "selected";
                               }
-                              ?>>Asesor</option>
+                              ?>>Supervisor</option>
           </select>
         </div>
+        </div>
+                            </br>
         <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Usuario</button>
       </form>
     </div>
   </div>
-
-
 </div>
 <!-- /.container-fluid -->
-
-</div>
+                            </br>
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>
