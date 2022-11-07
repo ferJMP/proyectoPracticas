@@ -53,7 +53,7 @@ if (empty($_REQUEST['id'])) {
 <!-- Begin Page Content -->
 <div class="container-fluid">
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><i>PANEL EDITAR NOTAS</i></h1>
+        <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-play mb-8"></i> PANEL EDITAR NOTAS</i></h1>
         <a href="listar_notas.php" class="btn btn-primary">Lista Notas</a>
       </div>
   <div class="row">

@@ -16,7 +16,9 @@ if (!empty($_POST)) {
     if($_FILES['imagen']['name']!=null){
         $imagen = $_FILES['imagen']['name'];
         $ruta = $_FILES['imagen']['tmp_name'];
-        $destino = "imagenSubidas/".$imagen;
+        $extensionArc = pathinfo($imagen, PATHINFO_EXTENSION); //obtener formato de la imagen .png, .jpg
+      $nuevo_nombre_archivo=date('dmy')."_".date('Hs')."_".rand(10, 99).".".$extensionArc; //nombre imagen..., concatena la estensión
+        $destino = "imagenSubidas/".$nuevo_nombre_archivo;
         copy($ruta, $destino);
         $query_update = mysqli_query($conexion, "UPDATE producto SET imagen='$destino' WHERE codproducto = $codproducto");
     }
@@ -58,7 +60,7 @@ if (empty($_REQUEST['id'])) {
 <!-- Begin Page Content -->
 <div class="container-fluid">
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">PANEL EDITAR SERVICIO</h1>
+        <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-server mb-8"></i> EDITAR SERVICIO</i></h1>
         <a href="lista_servicio.php" class="btn btn-primary">Lista Servicios</a>
       </div>
 
@@ -100,11 +102,14 @@ if (empty($_REQUEST['id'])) {
             <!--imagen-->
                <body>
                  <label for="fecha">Subir Imagen <span class="text-danger fw-bold">*</span></label>
+                          <div class="mb-2">
+                            <input class='form-control form-control-sm' type="file" name="imagen" id="archivo" accept="jpg, .png">
+                          </div>
                  </div>
                  <div class="main-container">
                    <div class="input-container">
-                     Clic aquí para subir tu imagen
-                     <input type="file" id="archivo" name="imagen" />
+                      Aquí se muestra previsualización de la imagen
+                     <text type="text" id="" name="" />
                    </div>
                    <div class="preview-container">
                      <img src="<?php echo $data_producto['imagen']; ?>" id="preview">

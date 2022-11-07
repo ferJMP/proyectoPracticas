@@ -1,16 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Cabin');
-html {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(214deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-    font-family: 'Cabin', sans-serif;
-}
-
 .main-container {
     width: 100%;
-    min-height: 350px;
+    min-height: 400px;
     margin-top: 3%;
     text-align: center;
     background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(18, 40, 27, 1) 18%, rgba(23, 53, 24, 1) 37%, rgba(49, 121, 9, 1) 100%, rgba(0, 212, 255, 1) 100%);
@@ -32,7 +22,8 @@ html {
     display: inline-block;
 }
 
-.input-container [type=file] {
+
+/*.input-container [type=file] {
     cursor: inherit;
     display: block;
     font-size: 999px;
@@ -44,18 +35,18 @@ html {
     right: 0;
     text-align: right;
     top: 0;
-}
+}*/
 
 .preview-container {
     margin: 0 auto;
     width: 350px;
-    min-height: 150px;
+    min-height: 100px;
     background-color: rgb(69, 63, 63);
     padding: 10px;
     border-radius: 30px;
 }
 
-.preview-container>img {
+.preview-container>embed {
     width: 250px;
     height: 180px;
 }

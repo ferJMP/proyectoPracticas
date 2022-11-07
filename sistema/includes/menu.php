@@ -23,7 +23,7 @@
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-			<i class="fas fa-fw fa-cog"></i>
+			<i class="fas fa-cart-plus"></i>
 			<span>Ventas</span>
 		</a>
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -37,7 +37,7 @@
 	<!-- Nav Item - Productos Collapse Menu -->
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-			<i class="fas fa-fw fa-wrench"></i>
+			<i class="fas fa-server"></i>
 			<span>Servicios</span>
 		</a>
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -64,7 +64,7 @@
 	<!-- Nav Item - Utilities Collapse Menu -->
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
-			<i class="fas fa-hospital"></i>
+			<i class="fas fa-car"></i>
 			<span>Proveedores</span>
 		</a>
 		<div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">

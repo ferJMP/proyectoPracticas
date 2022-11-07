@@ -3,7 +3,7 @@
     $host = "localhost";
     $user = "root";
     $clave = "";
-    $bd = "cic";
+    $bd = "true";
 
     $conexion = mysqli_connect($host,$user,$clave,$bd);
     if (mysqli_connect_errno()){

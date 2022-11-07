@@ -5,7 +5,7 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800"><i>PANEL VENTAS</i></h1>
+		<h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-cart-plus mb-8"></i> NOTAS</i> PANEL VENTAS</i></h1>
 	</div>
 	<div class="row">
 		<div class="col-lg-12">

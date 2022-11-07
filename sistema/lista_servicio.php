@@ -1,11 +1,13 @@
 <?php include_once "includes/header.php"; ?>
 
 <!-- Begin Page Content -->
+<link rel="stylesheet" href="css/subidaFoto.css">
+
 <div class="container-fluid">
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800"><i>SERVICIOS</i></h1>
+		<h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-server mb-8"></i> SERVICIOS</i></h1>
 		<a href="registro_servicio.php" class="btn btn-primary">Nuevo Servicio</a>
 	</div>
 	<div class="row">
@@ -37,7 +39,7 @@
 									<td><?php echo $data['servicio']; ?></td>
 									<td><?php echo $data['precio']; ?></td>
 									<td><?php echo $data['existencia']; ?></td>
-									<td class=""><?php echo '<img src="'.$data['imagen'].'">' ?></td>
+									<td><?php echo '<img  class="lista-img" src="'.$data['imagen'].'">' ?></td>
 										<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
 										<a href="agregar_servicio.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-biohazard'></i></a>

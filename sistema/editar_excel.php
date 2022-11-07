@@ -3,7 +3,7 @@ include_once "includes/header.php";
 include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
-  if (empty($_POST['nombre']) || empty($_FILES['archivoex'])) {
+  if (($_POST['nombre']==null) || empty($_FILES['archivoex'])) {
     $alert = '<div class="alert alert-primary" role="alert">
               Todo los campos son requeridos
             </div>';
@@ -23,9 +23,11 @@ if (!empty($_POST)) {
         if(unlink($ruta_archivoEX)) { //elimino la ruta de mi base de datos/ proyecto
           $archivoex = $_FILES['archivoex']['name'];
           $rutaEX = $_FILES['archivoex']['tmp_name'];
-          $destinoEX = "archivosExcel/".$archivoex;
+          $extensionArc = pathinfo($archivoex, PATHINFO_EXTENSION);
+          $nuevo_nombre_archivo=date('dmy')."_".date('Hs')."_".rand(10, 99).".".$extensionArc;
+          $destinoEX = "archivosExcel/".$nuevo_nombre_archivo;
           copy($rutaEX, $destinoEX);
-          $query_update = mysqli_query($conexion, "UPDATE archivo_ex SET archivo_Ex = '$destinoEX'  WHERE idarchivoex = $idarchivoex");
+          $query_update = mysqli_query($conexion, "UPDATE archivo_ex SET archivoex = '$destinoEX'  WHERE idarchivoex = $idarchivoex");
         }
       }
       $query_update = mysqli_query($conexion, "UPDATE archivo_ex SET nombre = '$nombre'  WHERE idarchivoex = $idarchivoex");
@@ -60,12 +62,12 @@ if (empty($_REQUEST['id'])) {
   }
 }
 ?>
-<link rel="stylesheet" href="css/subidaFoto.css">
+<link rel="stylesheet" href="css/imagenExcel.css">
 <!-- Begin Page Content -->
 <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-             <h1 class="h3 mb-0 text-gray-800"><i>PANEL EDITAR PDF</i></h1>
-             <a href="listar_archivos.php" class="btn btn-primary">Lista PDF</a>
+             <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-file-excel mb-8"></i> PANEL EDITAR PDF</i></h1>
+             <a href="listar_excel.php" class="btn btn-primary">Lista Excel</a>
         </div>
 
   <div class="row">
@@ -79,24 +81,26 @@ if (empty($_REQUEST['id'])) {
             <?php echo isset($alert) ? $alert : ''; ?>
             <div class="form-group">
               <label for="precio">Nombre</label>
-              <input type="text" placeholder="Ingrese nombre" class="form-control" name="nombre" id="nombre" value="<?php echo $data_archivo['nombre']; ?>">
+              <input type="text" placeholder="Ingrese nombre del archivo" class="form-control" name="nombre" id="nombre" value="<?php echo $data_archivo['nombre']; ?>">
             </div>
-            <!--imagen-->
-               <body>
-                 <label for="fecha">Subir Archivo <span class="text-danger fw-bold">*</span></label>
-                 </div> 
-                 <div class="main-container">
-                   <div class="input-container">
-                     Clic aquí para subir tu Archivo
-                     <input type="file" id="archivo" name="archivoex"/>
-                   </div>
-                   <div class="preview-container">
-                     <img src="img/excel.png" id="preview">
-                   </div>
-                 </div>
-               </body>
-            <!-- finish imagen-->
-            <input type="submit" value="Actualizar Excel" class="btn btn-primary">
+            <label for="">Subir Excel <span class="text-danger fw-bold">*</span></label>
+                         <div class="mb-2">
+                            <input class='form-control form-control-sm' type="file" name="archivoex" id="" accept=".xlsx, .csv" value="<?php echo $data_archivo['nombre']; ?>">
+                         </div>
+                         <input type="submit" value="Actualizar Excel" class="btn btn-primary">
+          </div>
+        <body>
+          <div class="main-container">
+          <div class="input-container">
+                   No se puede mostrar previsualización del Excel</br>
+                    "Una vez modificado el nombre y seleccionado el Excel,</br> 
+                    haga click en 'Actualizar Excel'"
+                  </div>
+                  <div class="preview-container">
+                    <embed src="img/excel.png" id="preview">
+                  </div>
+          </div>
+        </body>
         </form>
     </div>
   </div>

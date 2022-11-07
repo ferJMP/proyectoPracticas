@@ -73,7 +73,7 @@ if ($result_sql == 0) {
         <!-- Begin Page Content -->
         <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><i>PANEL EDITAR CLIENTE</i></h1>
+        <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-users mb-8"></i> EDITAR CLIENTE</i></h1>
         <a href="lista_cliente.php" class="btn btn-primary">Lista Clientes</a>
         </div>
           <div class="row">

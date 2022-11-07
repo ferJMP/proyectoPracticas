@@ -23,7 +23,9 @@ if (!empty($_POST)) {
         if(unlink($ruta_archivo)) { //elimino la ruta de mi base de datos/ proyecto
           $archivos = $_FILES['archivos']['name'];
           $ruta = $_FILES['archivos']['tmp_name'];
-          $destino = "archivoSubidas/".$archivos;
+          $extensionArc = pathinfo($archivos, PATHINFO_EXTENSION);
+          $nuevo_nombre_archivo=date('dmy')."_".date('Hs')."_".rand(10, 99).".".$extensionArc;
+          $destino = "archivoSubidas/".$nuevo_nombre_archivo;
           copy($ruta, $destino);
           $query_update = mysqli_query($conexion, "UPDATE archivos SET archivos = '$destino'  WHERE idarchivo = $idarchivo");
         }
@@ -60,11 +62,10 @@ if (empty($_REQUEST['id'])) {
   }
 }
 ?>
-<link rel="stylesheet" href="css/subidaFoto.css">
 <!-- Begin Page Content -->
 <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-             <h1 class="h3 mb-0 text-gray-800"><i>PANEL EDITAR PDF</i></h1>
+             <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-file-pdf mb-8"></i> PANEL EDITAR PDF</i></h1>
              <a href="listar_archivos.php" class="btn btn-primary">Lista PDF</a>
         </div>
   <div class="row">
@@ -80,25 +81,18 @@ if (empty($_REQUEST['id'])) {
               <label for="name">Nombre</label>
               <input type="text" placeholder="Ingrese nombre" class="form-control" name="nombre" id="nombre" value="<?php echo $data_archivo['nombre']; ?>">
             </div>
-            <!--imagen-->
-               <body>
-                 <label for="fecha">Subir Archivo <span class="text-danger fw-bold">*</span></label>
-                 </div>
-                 <div class="main-container">
-                   <div class="input-container">
-                     Clic aquí para subir tu Archivo
-                     <input type="file" id="archivo" name="archivos"/>
-                   </div>
-                   <div class="preview-container">
-                     <embed src="<?php echo $data_archivo['archivos']; ?>" id="preview">
-                   </div>
-                 </div>
-               </body>
-            <!-- finish imagen-->
+            <label for="">Subir Archivo <span class="text-danger fw-bold">*</span></label>
+                         <div class="mb-2">
+                            <input class='form-control form-control-sm' type="file" name="archivos" id="archivo" value="<?php echo $data_archivo['nombre']; ?>">
+                         </div>
             <input type="submit" value="Actualizar PDF" class="btn btn-primary">
+            </div>
+</br>
+</div>
+
         </form>
-    </div>
   </div>
+            <iframe class='w-100' height='600' src="<?php echo $data_archivo['archivos']; ?>" frameborder='0'></iframe>
 </div>
 <!-- /.container-fluid -->
 </br>

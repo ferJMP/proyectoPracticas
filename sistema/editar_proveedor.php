@@ -49,7 +49,7 @@ if ($result_sql == 0) {
 <!-- Begin Page Content -->
 <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-              <h1 class="h3 mb-0 text-gray-800"><i>PANEL EDITAR PROVEEDOR</i></h1>
+              <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-car mb-8"></i> EDITAR PROVEEDOR</i></h1>
               <a href="lista_proveedor.php" class="btn btn-primary">Lista Proveedores</a>
         </div>
   <div class="row">
@@ -59,7 +59,7 @@ if ($result_sql == 0) {
             </div>
       <div class="card">      
       <?php echo isset($alert) ? $alert : ''; ?>
-      <form class="" action="" method="post"  class="card-body p-2">
+      <form action="" method="post"  class="card-body p-2">
         <input type="hidden" name="id" value="<?php echo $idproveedor; ?>">
         <div class="form-group">
           <label for="proveedor">Proveedor</label>
@@ -77,14 +77,14 @@ if ($result_sql == 0) {
           <label for="direccion">Dirección</label>
           <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
         </div>
+        </div></br>
 
         <input type="submit" value="Editar Proveedor" class="btn btn-primary">
       </form>
-      </div>
     </div>
   </div>
 </div>
 <!-- /.container-fluid -->
-</br> 
+</div> 
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

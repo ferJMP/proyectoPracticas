@@ -15,7 +15,9 @@
 
       $imagen = $_FILES['imagen']['name'];
       $ruta = $_FILES['imagen']['tmp_name'];
-      $destino = "imagenSubidas/".$imagen;
+      $extensionArc = pathinfo($imagen, PATHINFO_EXTENSION); //obtener formato de la imagen .png, .jpg
+      $nuevo_nombre_archivo=date('dmy')."_".date('Hs')."_".rand(10, 99).".".$extensionArc; //nombre imagen..., concatena la estensión
+      $destino = "imagenSubidas/".$nuevo_nombre_archivo;
       copy($ruta, $destino);
   
       $query_insert = mysqli_query($conexion, "INSERT INTO producto(codproveedor,servicio,precio,existencia,usuario_id,imagen) values ('$proveedor', '$servicio', '$precio', '$cantidad','$usuario_id','$destino')");
@@ -39,7 +41,7 @@
 
    <!-- Page Heading -->
    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-     <h1 class="h3 mb-0 text-gray-800"><i>PANEL REGISTRO SERVICIOS</i></h1>
+     <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-server mb-8"></i> REGISTRO SERVICIOS</i></h1>
      <a href="lista_servicio.php" class="btn btn-primary">Lista Servicios</a>
    </div>
 
@@ -88,11 +90,14 @@
          <!--imagen-->
          <body>
            <label for="fecha">Subir Imagen del Servicio <span class="text-danger fw-bold">*</span></label>
+                          <div class="mb-2">
+                            <input class='form-control form-control-sm' type="file" name="imagen" id="archivo" accept="jpg, .png">
+                          </div>
            </div>
            <div class="main-container">
              <div class="input-container">
-               Clic aquí para subir tu imagen
-               <input type="file" id="archivo" name="imagen" accept=".jpg, .png"/>
+                Aquí se muestra previsualización de la imagen
+               <text type="text" id="" name="" accept=""/>
              </div>
              <div class="preview-container">
                <img src="img/subirimagen.png" id="preview">

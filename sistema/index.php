@@ -32,8 +32,8 @@
 </html>
 <!-- Begin Page Content -->
 <bodoy>
+	
 <div class="container-fluid">
-
 	<!-- Page Heading -->
 	<!--<div class="d-sm-flex align-items-center justify-content-between mb-4">-->
 	    <i style="font-size: 40px" class="fas fa-boxes mb-3"></i> 
@@ -41,6 +41,7 @@
 	<!--</div>-->
 
 	<!-- Content Row -->
+	
 	<div class="row">
 
 		<!-- Earnings (Monthly) Card Example -->

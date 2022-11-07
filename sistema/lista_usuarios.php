@@ -5,7 +5,7 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800"><i>USUARIOS</i></h1>
+		<h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-user mb-8"></i> USUARIOS</i></h1>
 		<?php if ($_SESSION['rol'] == 1) { ?>
 		<a href="registro_usuario.php" class="btn btn-primary">Nuevo Usuario</a>
 		<?php } ?>

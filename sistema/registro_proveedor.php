@@ -43,7 +43,7 @@ mysqli_close($conexion);
 <div class="container-fluid">
      <!-- Page Heading -->
      <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><i>PANEL REGISTRO PROVEEDORES</i></h1>
+        <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-car mb-8"></i> REGISTRO PROVEEDORES</i></h1>
         <a href="lista_proveedor.php" class="btn btn-primary">Lista Proveedores</a>
     </div>
     <!-- Content Row -->
