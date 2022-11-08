@@ -7,7 +7,7 @@
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-user mb-8"></i> USUARIOS</i></h1>
 		<?php if ($_SESSION['rol'] == 1) { ?>
-		<a href="registro_usuario.php" class="btn btn-primary">Nuevo Usuario</a>
+			<a href="registro_usuario.php" class="btn btn-primary">Nuevo Usuario</a>
 		<?php } ?>
 	</div>
 
@@ -23,8 +23,8 @@
 							<th>USUARIO</th>
 							<th>ROL</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
-							<th>ACCIONES</th>
-							<?php }?>
+								<th>ACCIONES</th>
+							<?php } ?>
 						</tr>
 					</thead>
 					<tbody>
@@ -42,16 +42,16 @@
 									<td><?php echo $data['usuario']; ?></td>
 									<td><?php echo $data['rol']; ?></td>
 									<?php if ($_SESSION['rol'] == 1) { ?>
-									<td>
-										<a href="editar_usuario.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-success"><i class='fas fa-edit'></i> Editar</a>
-										<form action="eliminar_usuario.php?id=<?php echo $data['idusuario']; ?>" method="post" class="confirmar d-inline">
-											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-										</form>
-									</td>
+										<td>
+											<a href="editar_usuario.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-success"><i class='fas fa-edit'></i> Editar</a>
+											<form action="eliminar_usuario.php?id=<?php echo $data['idusuario']; ?>" method="post" class="confirmar d-inline">
+												<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+											</form>
+										</td>
 									<?php } ?>
 								</tr>
-						<?php 
-						}
+						<?php
+							}
 						} ?>
 					</tbody>
 

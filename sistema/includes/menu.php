@@ -74,6 +74,23 @@
 			</div>
 		</div>
 	</li>
+
+	<!-- Subir Archivos -->
+	<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseArchivos" aria-expanded="true" aria-controls="collapseUtilities">
+				<i class="fas fa-file"></i>
+				<span>Archivos</span>
+			</a>
+			<div id="collapseArchivos" class="collapse" aria-labelledby="headingUtilitiess">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<a class="collapse-item" href="registrarArchivo.php">Nuevo Archivo PDF</a>
+					<a class="collapse-item" href="listar_archivos.php">Archivos PDF</a>
+					<a class="collapse-item" href="registrar_excel.php">Nuevo Archivo Excel</a>
+					<a class="collapse-item" href="listar_excel.php">Archivos Excel</a>
+				</div>
+			</div>
+		</li>
+		
 	<?php if ($_SESSION['rol'] == 1) { ?>
 		<!-- Nav Item - Usuarios Collapse Menu -->
 		<li class="nav-item">
@@ -90,34 +107,19 @@
 		</li>
 
 		<!-- Notas -->
-	    <li class="nav-item">
-	        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNotas" aria-expanded="true" aria-controls="collapseUtilities">
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNotas" aria-expanded="true" aria-controls="collapseUtilities">
 				<i class="fas fa-play"></i>
 				<span>Notas</span>
 			</a>
-		    <div id="collapseNotas" class="collapse" aria-labelledby="headingUtilitiess" >
-			    <div class="bg-white py-2 collapse-inner rounded">
-				    <a class="collapse-item" href="registro_notas.php">Nueva Nota</a>
-				    <a class="collapse-item" href="listar_notas.php">Notas</a>
-			    </div>
-		    </div>
-	    </li>
+			<div id="collapseNotas" class="collapse" aria-labelledby="headingUtilitiess">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<a class="collapse-item" href="registro_notas.php">Nueva Nota</a>
+					<a class="collapse-item" href="listar_notas.php">Notas</a>
+				</div>
+			</div>
+		</li>
 
-		<!-- Subir Archivos -->
-	    <li class="nav-item">
-	        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseArchivos" aria-expanded="true" aria-controls="collapseUtilities">
-				<i class="fas fa-file"></i>
-				<span>Archivos</span>
-			</a>
-		    <div id="collapseArchivos" class="collapse" aria-labelledby="headingUtilitiess" >
-			    <div class="bg-white py-2 collapse-inner rounded">
-				    <a class="collapse-item" href="registrarArchivo.php">Nuevo Archivo PDF</a>
-				    <a class="collapse-item" href="listar_archivos.php">Archivos PDF</a>
-				    <a class="collapse-item" href="registrar_excel.php">Nuevo Archivo Excel</a>
-				    <a class="collapse-item" href="listar_excel.php">Archivos Excel</a>
-			    </div>
-		    </div>
-	    </li>
 	<?php } ?>
 
 </ul>

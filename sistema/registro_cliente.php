@@ -56,56 +56,56 @@ if (!empty($_POST)) {
     <!-- Content Row -->
     <div class="row">
         <div class="col-lg-6 m-auto">
-                <div class="card-header bg-primary text-white">
+            <div class="card-header bg-primary text-white">
                 REGISTRO DE CLIENTES
-                </div>
-        <div class="card">
-            <form action="" method="post" autocomplete="off" class="card-body p-2">
-                <?php echo isset($alert) ? $alert : ''; ?>
-                <div class="form-group">
-                    <label for="ruc">Ruc</label>
-                    <input type="number" placeholder="Ingrese ruc" name="ruc" id="ruc" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="razonsocial">Razon Social</label>
-                    <input type="text" placeholder="Ingrese Razon Social" name="razonsocial" id="razonsocial" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-                    <input type="number" placeholder="Ingrese Teléfono" name="telefono" id="telefono" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="direccion">Dirección</label>
-                    <input type="text" placeholder="Ingrese Direccion" name="direccion" id="direccion" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="personacontacto">Persona Contacto</label>
-                    <input type="text" placeholder="Ingrese la Persona Contacto" name="personacontacto" id="personacontacto" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="cargo">Cargo</label>
-                    <input type="text" placeholder="Ingrese el Cargo" name="cargo" id="cargo" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="area">Area</label>
-                    <input type="text" placeholder="Ingrese el Area" name="area" id="area" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="correo">Correo</label>
-                    <input type="email" placeholder="Ingrese Correo" pattern=".+\.com" name="correo" id="correo" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="web">Web</label>
-                    <input type="url" placeholder="Ingrese link de la pagina Web" name="web" id="web" class="form-control">
-                </div> 
-                </div>  
-                 </br> 
-                <input type="submit" value="Guardar Cliente" class="btn btn-primary">
+            </div>
+            <div class="card">
+                <form action="" method="post" autocomplete="off" class="card-body p-2">
+                    <?php echo isset($alert) ? $alert : ''; ?>
+                    <div class="form-group">
+                        <label for="ruc">Ruc</label>
+                        <input type="number" placeholder="Ingrese ruc" name="ruc" id="ruc" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="razonsocial">Razon Social</label>
+                        <input type="text" placeholder="Ingrese Razon Social" name="razonsocial" id="razonsocial" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="number" placeholder="Ingrese Teléfono" name="telefono" id="telefono" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" placeholder="Ingrese Direccion" name="direccion" id="direccion" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="personacontacto">Persona Contacto</label>
+                        <input type="text" placeholder="Ingrese la Persona Contacto" name="personacontacto" id="personacontacto" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="cargo">Cargo</label>
+                        <input type="text" placeholder="Ingrese el Cargo" name="cargo" id="cargo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="area">Area</label>
+                        <input type="text" placeholder="Ingrese el Area" name="area" id="area" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo</label>
+                        <input type="email" placeholder="Ingrese Correo" pattern=".+\.com" name="correo" id="correo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="web">Web</label>
+                        <input type="url" placeholder="Ingrese link de la pagina Web" name="web" id="web" class="form-control">
+                    </div>
+            </div>
+            </br>
+            <input type="submit" value="Guardar Cliente" class="btn btn-primary">
             </form>
         </div>
     </div>
 </div>
 <!-- /.container-fluid -->
-</br> 
+</br>
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

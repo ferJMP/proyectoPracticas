@@ -52,51 +52,51 @@ if (!empty($_POST)) {
                 REGISTRO DE USUARIOS
             </div>
             <div class="card">
-            <form action="" method="post" autocomplete="off" class="card-body p-2">
-                <?php echo isset($alert) ? $alert : ''; ?>
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" placeholder="Ingrese Nombre" name="nombre" id="nombre">
-                </div>
-                <div class="form-group">
-                    <label for="correo">Correo</label>
-                    <input type="email" class="form-control" placeholder="Ingrese Correo Electrónico" name="correo" id="correo">
-                </div>
-                <div class="form-group">
-                    <label for="usuario">Usuario</label>
-                    <input type="text" class="form-control" placeholder="Ingrese Usuario" name="usuario" id="usuario">
-                </div>
-                <div class="form-group">
-                    <label for="clave">Contraseña</label>
-                    <input type="password" class="form-control" placeholder="Ingrese Contraseña" name="clave" id="clave">
-                </div>
-                <div class="form-group">
-                    <label>Rol</label>
-                    <select name="rol" id="rol" class="form-control">
-                        <?php
-                        $query_rol = mysqli_query($conexion, " select * from rol");
-                        mysqli_close($conexion);
-                        $resultado_rol = mysqli_num_rows($query_rol);
-                        if ($resultado_rol > 0) {
-                            while ($rol = mysqli_fetch_array($query_rol)) {
-                        ?>
-                                <option value="<?php echo $rol["idrol"]; ?>"><?php echo $rol["rol"] ?></option>
-                        <?php
+                <form action="" method="post" autocomplete="off" class="card-body p-2">
+                    <?php echo isset($alert) ? $alert : ''; ?>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" placeholder="Ingrese Nombre" name="nombre" id="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo</label>
+                        <input type="email" class="form-control" placeholder="Ingrese Correo Electrónico" name="correo" id="correo">
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario">Usuario</label>
+                        <input type="text" class="form-control" placeholder="Ingrese Usuario" name="usuario" id="usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="clave">Contraseña</label>
+                        <input type="password" class="form-control" placeholder="Ingrese Contraseña" name="clave" id="clave">
+                    </div>
+                    <div class="form-group">
+                        <label>Rol</label>
+                        <select name="rol" id="rol" class="form-control">
+                            <?php
+                            $query_rol = mysqli_query($conexion, " select * from rol");
+                            mysqli_close($conexion);
+                            $resultado_rol = mysqli_num_rows($query_rol);
+                            if ($resultado_rol > 0) {
+                                while ($rol = mysqli_fetch_array($query_rol)) {
+                            ?>
+                                    <option value="<?php echo $rol["idrol"]; ?>"><?php echo $rol["rol"] ?></option>
+                            <?php
 
+                                }
                             }
-                        }
 
-                        ?>
-                    </select>
-                     </div>
-                     </div>
-                    </br>
-                <input type="submit" value="Guardar Usuario" class="btn btn-primary">
+                            ?>
+                        </select>
+                    </div>
+            </div>
+            </br>
+            <input type="submit" value="Guardar Usuario" class="btn btn-primary">
             </form>
         </div>
     </div>
 </div>
 <!-- /.container-fluid -->
-</br> 
+</br>
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

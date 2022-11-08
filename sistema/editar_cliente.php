@@ -70,65 +70,65 @@ if ($result_sql == 0) {
   }
 }
 ?>
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-users mb-8"></i> EDITAR CLIENTE</i></h1>
-        <a href="lista_cliente.php" class="btn btn-primary">Lista Clientes</a>
-        </div>
-          <div class="row">
-            <div class="col-lg-6 m-auto">
-            <div class="card-header bg-primary text-white">
-                EDITAR CLIENTES
-            </div>
-            <div class="card">
-              <form action="" method="post" class="card-body p-2">
-                <?php echo isset($alert) ? $alert : ''; ?>
-                <input type="hidden" name="id" value="<?php echo $idcliente; ?>">
-                <div class="form-group">
-                  <label for="ruc">Ruc</label>
-                  <input type="number" placeholder="Ingrese Ruc" name="ruc" id="ruc" class="form-control" value="<?php echo $ruc; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="razonsocial">Razon Social</label>
-                  <input type="text" placeholder="Ingrese Razon Social" name="razonsocial" class="form-control" id="razonsocial" value="<?php echo $razonsocial; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="telefono">Teléfono</label>
-                  <input type="number" placeholder="Ingrese Teléfono" name="telefono" class="form-control" id="telefono" value="<?php echo $telefono; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="direccion">Dirección</label>
-                  <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="personacontacto">Persona Contacto</label>
-                  <input type="text" placeholder="Ingrese la Persona Contacto" name="personacontacto" class="form-control" id="personacontacto" value="<?php echo $personacontacto; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="cargo">Cargo</label>
-                  <input type="text" placeholder="Ingrese el Cargo" name="cargo" class="form-control" id="cargo" value="<?php echo $cargo; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="area">Area</label>
-                  <input type="text" placeholder="Ingrese el Area" name="area" class="form-control" id="area" value="<?php echo $area; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="email">Correo</label>
-                  <input type="text" placeholder="Ingrese Correo" name="correo" class="form-control" id="correo" value="<?php echo $correo; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="web">Web</label>
-                  <input type="url" placeholder="Ingrese Web" name="web" class="form-control" id="web" value="<?php echo $web; ?>">
-                </div>
-                </div>
-                </br>
-                <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Cliente</button>
-              </form>
-            </div>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-users mb-8"></i> EDITAR CLIENTE</i></h1>
+    <a href="lista_cliente.php" class="btn btn-primary">Lista Clientes</a>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 m-auto">
+      <div class="card-header bg-primary text-white">
+        EDITAR CLIENTES
+      </div>
+      <div class="card">
+        <form action="" method="post" class="card-body p-2">
+          <?php echo isset($alert) ? $alert : ''; ?>
+          <input type="hidden" name="id" value="<?php echo $idcliente; ?>">
+          <div class="form-group">
+            <label for="ruc">Ruc</label>
+            <input type="number" placeholder="Ingrese Ruc" name="ruc" id="ruc" class="form-control" value="<?php echo $ruc; ?>">
           </div>
-        </div>
-        <!-- /.container-fluid -->
-        </br> 
-      <!-- End of Main Content -->
-      <?php include_once "includes/footer.php"; ?>
+          <div class="form-group">
+            <label for="razonsocial">Razon Social</label>
+            <input type="text" placeholder="Ingrese Razon Social" name="razonsocial" class="form-control" id="razonsocial" value="<?php echo $razonsocial; ?>">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="number" placeholder="Ingrese Teléfono" name="telefono" class="form-control" id="telefono" value="<?php echo $telefono; ?>">
+          </div>
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
+          </div>
+          <div class="form-group">
+            <label for="personacontacto">Persona Contacto</label>
+            <input type="text" placeholder="Ingrese la Persona Contacto" name="personacontacto" class="form-control" id="personacontacto" value="<?php echo $personacontacto; ?>">
+          </div>
+          <div class="form-group">
+            <label for="cargo">Cargo</label>
+            <input type="text" placeholder="Ingrese el Cargo" name="cargo" class="form-control" id="cargo" value="<?php echo $cargo; ?>">
+          </div>
+          <div class="form-group">
+            <label for="area">Area</label>
+            <input type="text" placeholder="Ingrese el Area" name="area" class="form-control" id="area" value="<?php echo $area; ?>">
+          </div>
+          <div class="form-group">
+            <label for="email">Correo</label>
+            <input type="text" placeholder="Ingrese Correo" name="correo" class="form-control" id="correo" value="<?php echo $correo; ?>">
+          </div>
+          <div class="form-group">
+            <label for="web">Web</label>
+            <input type="url" placeholder="Ingrese Web" name="web" class="form-control" id="web" value="<?php echo $web; ?>">
+          </div>
+      </div>
+      </br>
+      <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Cliente</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- /.container-fluid -->
+</br>
+<!-- End of Main Content -->
+<?php include_once "includes/footer.php"; ?>

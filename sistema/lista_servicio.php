@@ -22,7 +22,7 @@
 							<th>STOCK</th>
 							<th>IMAGEN</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
-							<th>ACCIONES</th>
+								<th>ACCIONES</th>
 							<?php } ?>
 						</tr>
 					</thead>
@@ -39,21 +39,21 @@
 									<td><?php echo $data['servicio']; ?></td>
 									<td><?php echo $data['precio']; ?></td>
 									<td><?php echo $data['existencia']; ?></td>
-									<td><?php echo '<img  class="lista-img" src="'.$data['imagen'].'">' ?></td>
-										<?php if ($_SESSION['rol'] == 1) { ?>
-									<td>
-										<a href="agregar_servicio.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-biohazard'></i></a>
+									<td><?php echo '<img  class="lista-img" src="' . $data['imagen'] . '">' ?></td>
+									<?php if ($_SESSION['rol'] == 1) { ?>
+										<td>
+											<a href="agregar_servicio.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-biohazard'></i></a>
 
-										<a href="editar_servicio.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+											<a href="editar_servicio.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
-										<form action="eliminar_servicio.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
-											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-										</form>
-									</td>
-										<?php } ?>
+											<form action="eliminar_servicio.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
+												<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+											</form>
+										</td>
+									<?php } ?>
 								</tr>
-						<?php 
-						}
+						<?php
+							}
 						} ?>
 					</tbody>
 

@@ -48,43 +48,43 @@ if ($result_sql == 0) {
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-              <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-car mb-8"></i> EDITAR PROVEEDOR</i></h1>
-              <a href="lista_proveedor.php" class="btn btn-primary">Lista Proveedores</a>
-        </div>
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-car mb-8"></i> EDITAR PROVEEDOR</i></h1>
+    <a href="lista_proveedor.php" class="btn btn-primary">Lista Proveedores</a>
+  </div>
   <div class="row">
     <div class="col-lg-6 m-auto">
-            <div class="card-header bg-primary text-white">
-                EDITAR PROVEEDOR
-            </div>
-      <div class="card">      
-      <?php echo isset($alert) ? $alert : ''; ?>
-      <form action="" method="post"  class="card-body p-2">
-        <input type="hidden" name="id" value="<?php echo $idproveedor; ?>">
-        <div class="form-group">
-          <label for="proveedor">Proveedor</label>
-          <input type="text" placeholder="Ingrese proveedor" name="proveedor" class="form-control" id="proveedor" value="<?php echo $proveedor; ?>">
-        </div>
-        <div class="form-group">
-          <label for="nombre">Contacto</label>
-          <input type="text" placeholder="Ingrese contacto" name="contacto" class="form-control" id="contacto" value="<?php echo $contacto; ?>">
-        </div>
-        <div class="form-group">
-          <label for="telefono">Teléfono</label>
-          <input type="number" placeholder="Ingrese Teléfono" name="telefono" class="form-control" id="telefono" value="<?php echo $telefono; ?>">
-        </div>
-        <div class="form-group">
-          <label for="direccion">Dirección</label>
-          <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
-        </div>
-        </div></br>
+      <div class="card-header bg-primary text-white">
+        EDITAR PROVEEDOR
+      </div>
+      <div class="card">
+        <?php echo isset($alert) ? $alert : ''; ?>
+        <form action="" method="post" class="card-body p-2">
+          <input type="hidden" name="id" value="<?php echo $idproveedor; ?>">
+          <div class="form-group">
+            <label for="proveedor">Proveedor</label>
+            <input type="text" placeholder="Ingrese proveedor" name="proveedor" class="form-control" id="proveedor" value="<?php echo $proveedor; ?>">
+          </div>
+          <div class="form-group">
+            <label for="nombre">Contacto</label>
+            <input type="text" placeholder="Ingrese contacto" name="contacto" class="form-control" id="contacto" value="<?php echo $contacto; ?>">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="number" placeholder="Ingrese Teléfono" name="telefono" class="form-control" id="telefono" value="<?php echo $telefono; ?>">
+          </div>
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
+          </div>
+      </div></br>
 
-        <input type="submit" value="Editar Proveedor" class="btn btn-primary">
+      <input type="submit" value="Editar Proveedor" class="btn btn-primary">
       </form>
     </div>
   </div>
 </div>
 <!-- /.container-fluid -->
-</div> 
+</div>
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

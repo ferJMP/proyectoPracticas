@@ -23,7 +23,7 @@
 							<th>FECHA ENTREGA</th>
 							<th>HORA ENTREGA</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
-							<th>ACCIONES</th>
+								<th>ACCIONES</th>
 							<?php } ?>
 						</tr>
 					</thead>
@@ -44,18 +44,18 @@
 									<td><?php echo $data['fecha_inicio']; ?></td>
 									<td><?php echo $data['fecha_entrega']; ?></td>
 									<td><?php echo $data['hora']; ?></td>
-										<?php if ($_SESSION['rol'] == 1) { ?>
-									<td>
-										<a href="editar_notas.php?id=<?php echo $data['idnota']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+									<?php if ($_SESSION['rol'] == 1) { ?>
+										<td>
+											<a href="editar_notas.php?id=<?php echo $data['idnota']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
-										<form action="eliminar_notas.php?id=<?php echo $data['idnota']; ?>" method="post" class="confirmar d-inline">
-											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-										</form>
-									</td>
-										<?php } ?>
+											<form action="eliminar_notas.php?id=<?php echo $data['idnota']; ?>" method="post" class="confirmar d-inline">
+												<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+											</form>
+										</td>
+									<?php } ?>
 								</tr>
-						<?php 
-						}
+						<?php
+							}
 						} ?>
 					</tbody>
 

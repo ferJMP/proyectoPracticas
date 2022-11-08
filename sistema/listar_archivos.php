@@ -20,43 +20,42 @@
 							<th>ARCHIVOS</th>
 							<th>DESCARGA</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
-							<th>ACCIONES</th>
+								<th>ACCIONES</th>
 							<?php } ?>
 						</tr>
 					</thead>
 					<tbody>
-						<?php 
+						<?php
 						include "../conexion.php";
 
 						$query = mysqli_query($conexion, "SELECT * FROM archivos");
 						$result = mysqli_num_rows($query);
 						if ($result > 0) {
-							while ($data = mysqli_fetch_assoc($query)) { 
+							while ($data = mysqli_fetch_assoc($query)) {
 								$rutadescarga = $data['archivos'];
-								?>
+						?>
 								<tr>
 									<td><?php echo $data['idarchivo']; ?></td>
 									<td><?php echo $data['nombre']; ?></td>
-                                    <?php if ($_SESSION['rol'] == 1) { ?>
-									<td><?php echo '<embed src="'.$data['archivos'].'">' ?></td>
-									<td>
-									<a href="<?php echo $rutadescarga; ?>" download="<?php echo "descarga"; ?>" class="btn btn-success btn-sm">
-								    <span class="fas fa-download"></span>
-								    </a>
-									</td>
+										<td><?php echo '<embed src="' . $data['archivos'] . '">' ?></td>
+										<td>
+											<a href="<?php echo $rutadescarga; ?>" download="<?php echo "descarga"; ?>" class="btn btn-success btn-sm">
+												<span class="fas fa-download"></span>
+											</a>
+										</td>
+										<?php if ($_SESSION['rol'] == 1) { ?>
+										<td>
+											<a href="editar_archivo.php?id=<?php echo $data['idarchivo']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
-									<td>
-									    <a href="editar_archivo.php?id=<?php echo $data['idarchivo']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
-
-										<form action="eliminar_archivos.php?id=<?php echo $data['idarchivo']; ?>" method="post" class="confirmar d-inline">
-											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-										</form>
-									</td>
-										<?php } ?>
+											<form action="eliminar_archivos.php?id=<?php echo $data['idarchivo']; ?>" method="post" class="confirmar d-inline">
+												<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+											</form>
+										</td>
+									<?php } ?>
 								</tr>
-						<?php 
-						}
-                        } ?>
+						<?php
+							}
+						} ?>
 					</tbody>
 
 				</table>

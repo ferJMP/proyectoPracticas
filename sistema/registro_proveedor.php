@@ -20,19 +20,19 @@ if (!empty($_POST)) {
             $alert = '<div class="alert alert-danger" role="alert">
                         El Ruc ya esta registrado
                     </div>';
-        }else{
-        
+        } else {
 
-        $query_insert = mysqli_query($conexion, "INSERT INTO proveedor(proveedor,contacto,telefono,direccion,usuario_id) values ('$proveedor', '$contacto', '$telefono', '$Direccion','$usuario_id')");
-        if ($query_insert) {
-            $alert = '<div class="alert alert-primary" role="alert">
+
+            $query_insert = mysqli_query($conexion, "INSERT INTO proveedor(proveedor,contacto,telefono,direccion,usuario_id) values ('$proveedor', '$contacto', '$telefono', '$Direccion','$usuario_id')");
+            if ($query_insert) {
+                $alert = '<div class="alert alert-primary" role="alert">
                         Proveedor Registrado
                     </div>';
-        } else {
-            $alert = '<div class="alert alert-danger" role="alert">
+            } else {
+                $alert = '<div class="alert alert-danger" role="alert">
                        Error al registrar proveedor
                     </div>';
-        }
+            }
         }
     }
 }
@@ -41,8 +41,8 @@ mysqli_close($conexion);
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-     <!-- Page Heading -->
-     <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-car mb-8"></i> REGISTRO PROVEEDORES</i></h1>
         <a href="lista_proveedor.php" class="btn btn-primary">Lista Proveedores</a>
     </div>
@@ -71,14 +71,14 @@ mysqli_close($conexion);
                         <label for="direccion">Dirección</label>
                         <input type="text" placeholder="Ingrese Direccion" name="direccion" id="direcion" class="form-control">
                     </div>
-                    </div>
-                     </br>
-                    <input type="submit" value="Guardar Proveedor" class="btn btn-primary">
-                </form>
+            </div>
+            </br>
+            <input type="submit" value="Guardar Proveedor" class="btn btn-primary">
+            </form>
         </div>
     </div>
 </div>
 <!-- /.container-fluid -->
-</br> 
+</br>
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

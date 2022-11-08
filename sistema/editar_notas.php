@@ -8,7 +8,7 @@ if (!empty($_POST)) {
               Todo los campos son requeridos
             </div>';
   } else {
-    $idnota= $_GET['id'];
+    $idnota = $_GET['id'];
     $rol = $_POST['rol'];
     $tarea = $_POST['tarea'];
     $descripcion = $_POST['descripcion'];
@@ -52,72 +52,74 @@ if (empty($_REQUEST['id'])) {
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-      <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-play mb-8"></i> PANEL EDITAR NOTAS</i></h1>
-        <a href="listar_notas.php" class="btn btn-primary">Lista Notas</a>
-      </div>
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-play mb-8"></i> PANEL EDITAR NOTAS</i></h1>
+    <a href="listar_notas.php" class="btn btn-primary">Lista Notas</a>
+  </div>
   <div class="row">
     <div class="col-lg-6 m-auto">
-        <div class="card-header bg-primary text-white">
-          MODIFICAR NOTA
-        </div>
-        <div class="card">
-          <form action="" method="post" class="card-body p-2">
-            <?php echo isset($alert) ? $alert : ''; ?>
-            <div class="form-group">
-              <label for="nombre">Roles</label>
-              <?php $query_notas = mysqli_query($conexion, "SELECT * FROM rol");
-              $resultado_notas = mysqli_num_rows($query_notas);
-              mysqli_close($conexion);
+      <div class="card-header bg-primary text-white">
+        MODIFICAR NOTA
+      </div>
+      <div class="card">
+        <form action="" method="post" class="card-body p-2">
+          <?php echo isset($alert) ? $alert : ''; ?>
+          <div class="form-group">
+            <label for="nombre">Roles</label>
+            <?php $query_notas = mysqli_query($conexion, "SELECT * FROM rol");
+            $resultado_notas = mysqli_num_rows($query_notas);
+            mysqli_close($conexion);
+            ?>
+            <select id="rol" name="rol" class="form-control">
+
+              <?php
+              if ($resultado_notas > 0) {
+                while ($rs = mysqli_fetch_array($query_notas)) {
+                  // code...
               ?>
-              <select id="rol" name="rol" class="form-control">
-               
-                <?php
-                if ($resultado_notas > 0) {
-                  while ($rs = mysqli_fetch_array($query_notas)) {
-                    // code...
-                ?>
-                    <option <?php if ($data_notas['idrol'] == $rs['idrol']){echo "selected";} ?> value="<?php echo $rs['idrol']; ?>"><?php echo $rs['rol']; ?></option>
-                    
-                <?php
-                  }
+                  <option <?php if ($data_notas['idrol'] == $rs['idrol']) {
+                            echo "selected";
+                          } ?> value="<?php echo $rs['idrol']; ?>"><?php echo $rs['rol']; ?></option>
+
+              <?php
                 }
-                ?>
-              </select>
-            </div>
+              }
+              ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tarea">Tarea</label>
+            <input type="text" class="form-control" placeholder="Ingrese Nota" name="tarea" id="tarea" value="<?php echo $data_notas['tarea']; ?>">
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Descripcion</label>
+            <input type="text" placeholder="Ingrese descripcion" class="form-control" name="descripcion" id="descripcion" value="<?php echo $data_notas['descripcion']; ?>">
+          </div>
+          <div class="col-md-5">
             <div class="form-group">
-              <label for="tarea">Tarea</label>
-              <input type="text" class="form-control" placeholder="Ingrese Nota" name="tarea" id="tarea" value="<?php echo $data_notas['tarea']; ?>">
+              <label for="fecha_inicio">Modificar Fecha de Inicio <span class="text-danger fw-bold">*</span></label>
+              <input id="fecha_inicio" class="form-control" type="date" name="fecha_inicio" value="<?php echo $data_notas['fecha_inicio']; ?>">
             </div>
+          </div>
+          <div class="col-md-5">
             <div class="form-group">
-              <label for="descripcion">Descripcion</label>
-              <input type="text" placeholder="Ingrese descripcion" class="form-control" name="descripcion" id="descripcion" value="<?php echo $data_notas['descripcion']; ?>">
+              <label for="fecha_entrega">Modificar Fecha de Entrega <span class="text-danger fw-bold">*</span></label>
+              <input id="fecha_entrega" class="form-control" type="date" name="fecha_entrega" value="<?php echo $data_notas['fecha_entrega']; ?>">
             </div>
-            <div class="col-md-5">
-               <div class="form-group">
-                 <label for="fecha_inicio">Modificar Fecha de Inicio <span class="text-danger fw-bold">*</span></label>
-                 <input id="fecha_inicio" class="form-control" type="date" name="fecha_inicio"  value="<?php echo $data_notas['fecha_inicio']; ?>">
-               </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-floating mb-4">
+              <label for="hora">Hora Entrega <span class="text-danger fw-bold">*</span></label>
+              <input id="hora" class="form-control" type="time" name="hora" value="<?php echo date($data_notas['hora']); ?>" required>
             </div>
-            <div class="col-md-5">
-                <div class="form-group">
-                  <label for="fecha_entrega">Modificar Fecha de Entrega <span class="text-danger fw-bold">*</span></label>
-                  <input id="fecha_entrega" class="form-control" type="date" name="fecha_entrega" value="<?php echo $data_notas['fecha_entrega']; ?>">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-floating mb-4">
-                   <label for="hora">Hora Entrega <span class="text-danger fw-bold">*</span></label>
-                   <input id="hora" class="form-control" type="time" name="hora" value="<?php echo date($data_notas['hora']); ?>" required>
-                </div>
-            </div>
-            <input type="submit" value="Actualizar Nota" class="btn btn-primary">
-          </form>
+          </div>
+          <input type="submit" value="Actualizar Nota" class="btn btn-primary">
+        </form>
       </div>
     </div>
   </div>
 </div>
 <!-- /.container-fluid -->
-</br> 
+</br>
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>

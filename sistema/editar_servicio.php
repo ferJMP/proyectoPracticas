@@ -12,15 +12,15 @@ if (!empty($_POST)) {
     $proveedor = $_POST['proveedor'];
     $servicio = $_POST['servicio'];
     $precio = $_POST['precio'];
-    $imagen=null;
-    if($_FILES['imagen']['name']!=null){
-        $imagen = $_FILES['imagen']['name'];
-        $ruta = $_FILES['imagen']['tmp_name'];
-        $extensionArc = pathinfo($imagen, PATHINFO_EXTENSION); //obtener formato de la imagen .png, .jpg
-      $nuevo_nombre_archivo=date('dmy')."_".date('Hs')."_".rand(10, 99).".".$extensionArc; //nombre imagen..., concatena la estensión
-        $destino = "imagenSubidas/".$nuevo_nombre_archivo;
-        copy($ruta, $destino);
-        $query_update = mysqli_query($conexion, "UPDATE producto SET imagen='$destino' WHERE codproducto = $codproducto");
+    $imagen = null;
+    if ($_FILES['imagen']['name'] != null) {
+      $imagen = $_FILES['imagen']['name'];
+      $ruta = $_FILES['imagen']['tmp_name'];
+      $extensionArc = pathinfo($imagen, PATHINFO_EXTENSION); //obtener formato de la imagen .png, .jpg
+      $nuevo_nombre_archivo = date('dmy') . "_" . date('Hs') . "_" . rand(10, 99) . "." . $extensionArc; //nombre imagen..., concatena la estensión
+      $destino = "imagenSubidas/" . $nuevo_nombre_archivo;
+      copy($ruta, $destino);
+      $query_update = mysqli_query($conexion, "UPDATE producto SET imagen='$destino' WHERE codproducto = $codproducto");
     }
 
     $query_update = mysqli_query($conexion, "UPDATE producto SET servicio = '$servicio', codproveedor= $proveedor,precio= $precio WHERE codproducto = $codproducto");
@@ -59,71 +59,74 @@ if (empty($_REQUEST['id'])) {
 <link rel="stylesheet" href="css/subidaFoto.css">
 <!-- Begin Page Content -->
 <div class="container-fluid">
-      <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-server mb-8"></i> EDITAR SERVICIO</i></h1>
-        <a href="lista_servicio.php" class="btn btn-primary">Lista Servicios</a>
-      </div>
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"><i><i style="font-size: 60px" class="fas fa-server mb-8"></i> EDITAR SERVICIO</i></h1>
+    <a href="lista_servicio.php" class="btn btn-primary">Lista Servicios</a>
+  </div>
 
   <div class="row">
     <div class="col-lg-6 m-auto">
-        <div class="card-header bg-primary text-white">
-          MODIFICAR SERVICIO
-        </div>
-        <div class="card">
+      <div class="card-header bg-primary text-white">
+        MODIFICAR SERVICIO
+      </div>
+      <div class="card">
         <form action="" method="post" enctype="multipart/form-data" class="card-body p-2">
-            <?php echo isset($alert) ? $alert : ''; ?>
-            <div class="form-group">
-              <label for="nombre">Proveedor</label>
-              <?php $query_proveedor = mysqli_query($conexion, "SELECT * FROM proveedor ORDER BY proveedor ASC");
-              $resultado_proveedor = mysqli_num_rows($query_proveedor);
-              mysqli_close($conexion);
+          <?php echo isset($alert) ? $alert : ''; ?>
+          <div class="form-group">
+            <label for="nombre">Proveedor</label>
+            <?php $query_proveedor = mysqli_query($conexion, "SELECT * FROM proveedor ORDER BY proveedor ASC");
+            $resultado_proveedor = mysqli_num_rows($query_proveedor);
+            mysqli_close($conexion);
+            ?>
+            <select id="proveedor" name="proveedor" class="form-control">
+              <?php
+              if ($resultado_proveedor > 0) {
+                while ($proveedor = mysqli_fetch_array($query_proveedor)) {
+                  // code...
               ?>
-              <select id="proveedor" name="proveedor" class="form-control">
-                <?php
-                if ($resultado_proveedor > 0) {
-                  while ($proveedor = mysqli_fetch_array($query_proveedor)) {
-                    // code...
-                ?>
-                    <option <?php if ($data_producto['codproveedor'] == $proveedor['codproveedor']){echo "selected";} ?> value="<?php echo $proveedor['codproveedor']; ?>"><?php echo $proveedor['proveedor']; ?></option>
-                <?php
-                  }
+                  <option <?php if ($data_producto['codproveedor'] == $proveedor['codproveedor']) {
+                            echo "selected";
+                          } ?> value="<?php echo $proveedor['codproveedor']; ?>"><?php echo $proveedor['proveedor']; ?></option>
+              <?php
                 }
-                ?>
-              </select>
+              }
+              ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="servicio">Servicio</label>
+            <input type="text" class="form-control" placeholder="Ingrese nombre del servicio" name="servicio" id="servicio" value="<?php echo $data_producto['servicio']; ?>">
+          </div>
+          <div class="form-group">
+            <label for="precio">Precio</label>
+            <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" id="precio" value="<?php echo $data_producto['precio']; ?>">
+          </div>
+          <!--imagen-->
+
+          <body>
+            <label for="fecha">Subir Imagen <span class="text-danger fw-bold">*</span></label>
+            <div class="mb-2">
+              <input class='form-control form-control-sm' type="file" name="imagen" id="archivo" accept="jpg, .png">
             </div>
-            <div class="form-group">
-              <label for="servicio">Servicio</label>
-              <input type="text" class="form-control" placeholder="Ingrese nombre del servicio" name="servicio" id="servicio" value="<?php echo $data_producto['servicio']; ?>">
-            </div>
-            <div class="form-group">
-              <label for="precio">Precio</label>
-              <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" id="precio" value="<?php echo $data_producto['precio']; ?>">
-            </div>
-            <!--imagen-->
-               <body>
-                 <label for="fecha">Subir Imagen <span class="text-danger fw-bold">*</span></label>
-                          <div class="mb-2">
-                            <input class='form-control form-control-sm' type="file" name="imagen" id="archivo" accept="jpg, .png">
-                          </div>
-                 </div>
-                 <div class="main-container">
-                   <div class="input-container">
-                      Aquí se muestra previsualización de la imagen
-                     <text type="text" id="" name="" />
-                   </div>
-                   <div class="preview-container">
-                     <img src="<?php echo $data_producto['imagen']; ?>" id="preview">
-                   </div>
-                 </div>
-               </body>
-            <!-- finish imagen-->
-            <input type="submit" value="Actualizar Producto" class="btn btn-primary">
-        </form>
+      </div>
+      <div class="main-container">
+        <div class="input-container">
+          Aquí se muestra previsualización de la imagen
+          <text type="text" id="" name="" />
+        </div>
+        <div class="preview-container">
+          <img src="<?php echo $data_producto['imagen']; ?>" id="preview">
         </div>
       </div>
+      </body>
+      <!-- finish imagen-->
+      <input type="submit" value="Actualizar Producto" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
 </div>
 <!-- /.container-fluid -->
-</br> 
+</br>
 <script type="text/javascript" src="js/subidaFoto.js"></script>
 <!-- End of Main Content -->
 <?php include_once "includes/footer.php"; ?>
