@@ -76,6 +76,7 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 20px;
 }
 
 .i i {

@@ -1649,7 +1649,7 @@ pre code {
 .table {
     width: 100%;
     margin-bottom: 1rem;
-    color: black;
+    color: white;
     text-align: center;
     justify-content: center;
     padding: 10px;
@@ -2551,7 +2551,7 @@ fieldset:disabled a.btn {
 
 .btn-primary:hover {
     color: black;
-    background-color: #00F8B8;
+    background-color: cyan;
     border-color: black;
 }
 
@@ -5592,7 +5592,7 @@ a.badge-dark:focus {
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-image: linear-gradient(140deg, black 10%, #00F8B8 160%);
+    background: #36b9cc;
     border-color: black
 }
 
@@ -6753,7 +6753,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-    background-image: linear-gradient(140deg, black 10%, #00F8B8 160%);
+    background: #36b9cc;
 }
 
 a.bg-primary:focus,
@@ -9941,7 +9941,7 @@ button.bg-dark:hover {
 }
 
 .text-white {
-    color: #fff!important
+    color: whitesmoke!important
 }
 
 .text-primary {
@@ -10157,7 +10157,8 @@ a:focus {
 }
 
 #wrapper #content-wrapper {
-    background: linear-gradient(200deg, rgba(242, 237, 237, 1) 0%, rgba(66, 162, 65, 1) 100%, rgba(7, 137, 8, 1) 100%);
+    /*background: linear-gradient(200deg, rgba(242, 237, 237, 1) 0%, rgba(66, 162, 65, 1) 100%, rgba(7, 137, 8, 1) 100%);*/
+    background-color: #ffb588;
     width: 100%;
     overflow-x: hidden
 }
@@ -10263,7 +10264,7 @@ a:focus {
 
 .bg-gradient-primary {
     background-color: rgba(54, 185, 204, .5);
-    background-image: linear-gradient(180deg, black 10%, #00F8B8 100%);
+    background: #36b9cc;
     background-size: cover
 }
 
@@ -10386,7 +10387,7 @@ a:focus {
 }
 
 .text-gray-800 {
-    color: black
+    color: white
 }
 
 .text-gray-900 {
@@ -11021,11 +11022,11 @@ a:focus {
 }
 
 .sidebar-dark .sidebar-heading {
-    color: aquamarine;
+    color: white
 }
 
 .sidebar-dark .nav-item .nav-link {
-    color: rgba(255, 255, 255, .8)
+    color: white
 }
 
 .sidebar-dark .nav-item .nav-link i {
@@ -11035,7 +11036,7 @@ a:focus {
 .sidebar-dark .nav-item .nav-link:active,
 .sidebar-dark .nav-item .nav-link:focus,
 .sidebar-dark .nav-item .nav-link:hover {
-    color: #fff
+    color: black
 }
 
 .sidebar-dark .nav-item .nav-link:active i,

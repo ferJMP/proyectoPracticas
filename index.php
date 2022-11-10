@@ -38,6 +38,7 @@ if (!empty($_SESSION['active'])) {
 ?>
 <!DOCTYPE html>
 <html>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="sistema/css/loaderIndex.css">
 <head>
 	<title>Login/CIC</title>
@@ -60,6 +61,7 @@ if (!empty($_SESSION['active'])) {
 			<form method="POST">
 			 <?php echo isset($alert) ? $alert : ""; ?>>
 				<img src="sistema/login/img/avatar2.svg">
+        <img src="sistema/login/img/avatar3.jpg">
 				<h2 class="title">Bienvenido</h2>
            		<div class="input-div one">
            		   <div class="i" >
